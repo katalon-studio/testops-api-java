@@ -21,7 +21,7 @@ jobs:
       - name: Cache maven packages
         uses: actions/cache@v2
         with:
-          path: ~/.mvn
+          path: ~/.m2
           key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
 
       - name: Deploy Maven Package
