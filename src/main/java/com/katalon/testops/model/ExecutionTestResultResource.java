@@ -25,7 +25,6 @@ import com.katalon.testops.model.FileResource;
 import com.katalon.testops.model.IncidentResource;
 import com.katalon.testops.model.PlatformResource;
 import com.katalon.testops.model.TestCaseResource;
-import com.katalon.testops.model.TestResultAssertionFailedResource;
 import com.katalon.testops.model.TestSuiteResource;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
@@ -105,9 +104,6 @@ public class ExecutionTestResultResource {
 
   @JsonProperty("attachments")
   private List<FileResource> attachments = null;
-
-  @JsonProperty("testResultAssertionsFailed")
-  private List<TestResultAssertionFailedResource> testResultAssertionsFailed = null;
 
   @JsonProperty("startTime")
   private OffsetDateTime startTime = null;
@@ -189,15 +185,6 @@ public class ExecutionTestResultResource {
 
   @JsonProperty("totalDefects")
   private Integer totalDefects = null;
-
-  @JsonProperty("totalAssertion")
-  private Long totalAssertion = null;
-
-  @JsonProperty("passedAssertion")
-  private Long passedAssertion = null;
-
-  @JsonProperty("failedAssertion")
-  private Long failedAssertion = null;
 
   @JsonProperty("urlId")
   private String urlId = null;
@@ -406,32 +393,6 @@ public class ExecutionTestResultResource {
 
   public void setAttachments(List<FileResource> attachments) {
     this.attachments = attachments;
-  }
-
-  public ExecutionTestResultResource testResultAssertionsFailed(List<TestResultAssertionFailedResource> testResultAssertionsFailed) {
-    this.testResultAssertionsFailed = testResultAssertionsFailed;
-    return this;
-  }
-
-  public ExecutionTestResultResource addTestResultAssertionsFailedItem(TestResultAssertionFailedResource testResultAssertionsFailedItem) {
-    if (this.testResultAssertionsFailed == null) {
-      this.testResultAssertionsFailed = new ArrayList<TestResultAssertionFailedResource>();
-    }
-    this.testResultAssertionsFailed.add(testResultAssertionsFailedItem);
-    return this;
-  }
-
-   /**
-   * Get testResultAssertionsFailed
-   * @return testResultAssertionsFailed
-  **/
-  @Schema(description = "")
-  public List<TestResultAssertionFailedResource> getTestResultAssertionsFailed() {
-    return testResultAssertionsFailed;
-  }
-
-  public void setTestResultAssertionsFailed(List<TestResultAssertionFailedResource> testResultAssertionsFailed) {
-    this.testResultAssertionsFailed = testResultAssertionsFailed;
   }
 
   public ExecutionTestResultResource startTime(OffsetDateTime startTime) {
@@ -746,60 +707,6 @@ public class ExecutionTestResultResource {
     this.totalDefects = totalDefects;
   }
 
-  public ExecutionTestResultResource totalAssertion(Long totalAssertion) {
-    this.totalAssertion = totalAssertion;
-    return this;
-  }
-
-   /**
-   * Get totalAssertion
-   * @return totalAssertion
-  **/
-  @Schema(description = "")
-  public Long getTotalAssertion() {
-    return totalAssertion;
-  }
-
-  public void setTotalAssertion(Long totalAssertion) {
-    this.totalAssertion = totalAssertion;
-  }
-
-  public ExecutionTestResultResource passedAssertion(Long passedAssertion) {
-    this.passedAssertion = passedAssertion;
-    return this;
-  }
-
-   /**
-   * Get passedAssertion
-   * @return passedAssertion
-  **/
-  @Schema(description = "")
-  public Long getPassedAssertion() {
-    return passedAssertion;
-  }
-
-  public void setPassedAssertion(Long passedAssertion) {
-    this.passedAssertion = passedAssertion;
-  }
-
-  public ExecutionTestResultResource failedAssertion(Long failedAssertion) {
-    this.failedAssertion = failedAssertion;
-    return this;
-  }
-
-   /**
-   * Get failedAssertion
-   * @return failedAssertion
-  **/
-  @Schema(description = "")
-  public Long getFailedAssertion() {
-    return failedAssertion;
-  }
-
-  public void setFailedAssertion(Long failedAssertion) {
-    this.failedAssertion = failedAssertion;
-  }
-
   public ExecutionTestResultResource urlId(String urlId) {
     this.urlId = urlId;
     return this;
@@ -820,7 +727,7 @@ public class ExecutionTestResultResource {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -839,7 +746,6 @@ public class ExecutionTestResultResource {
         Objects.equals(this.descriptionId, executionTestResultResource.descriptionId) &&
         Objects.equals(this.logId, executionTestResultResource.logId) &&
         Objects.equals(this.attachments, executionTestResultResource.attachments) &&
-        Objects.equals(this.testResultAssertionsFailed, executionTestResultResource.testResultAssertionsFailed) &&
         Objects.equals(this.startTime, executionTestResultResource.startTime) &&
         Objects.equals(this.endTime, executionTestResultResource.endTime) &&
         Objects.equals(this.duration, executionTestResultResource.duration) &&
@@ -856,15 +762,12 @@ public class ExecutionTestResultResource {
         Objects.equals(this.failedTestResultCategory, executionTestResultResource.failedTestResultCategory) &&
         Objects.equals(this.totalTestObject, executionTestResultResource.totalTestObject) &&
         Objects.equals(this.totalDefects, executionTestResultResource.totalDefects) &&
-        Objects.equals(this.totalAssertion, executionTestResultResource.totalAssertion) &&
-        Objects.equals(this.passedAssertion, executionTestResultResource.passedAssertion) &&
-        Objects.equals(this.failedAssertion, executionTestResultResource.failedAssertion) &&
         Objects.equals(this.urlId, executionTestResultResource.urlId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, testCase, execution, platform, status, sameStatusPeriod, errorDetailsId, stdoutId, descriptionId, logId, attachments, testResultAssertionsFailed, startTime, endTime, duration, sameFailureResults, testSuite, executionTestSuite, incidents, profile, hasComment, errorMessage, errorDetail, webUrl, externalIssues, failedTestResultCategory, totalTestObject, totalDefects, totalAssertion, passedAssertion, failedAssertion, urlId);
+    return Objects.hash(id, testCase, execution, platform, status, sameStatusPeriod, errorDetailsId, stdoutId, descriptionId, logId, attachments, startTime, endTime, duration, sameFailureResults, testSuite, executionTestSuite, incidents, profile, hasComment, errorMessage, errorDetail, webUrl, externalIssues, failedTestResultCategory, totalTestObject, totalDefects, urlId);
   }
 
 
@@ -884,7 +787,6 @@ public class ExecutionTestResultResource {
     sb.append("    descriptionId: ").append(toIndentedString(descriptionId)).append("\n");
     sb.append("    logId: ").append(toIndentedString(logId)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
-    sb.append("    testResultAssertionsFailed: ").append(toIndentedString(testResultAssertionsFailed)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
@@ -901,9 +803,6 @@ public class ExecutionTestResultResource {
     sb.append("    failedTestResultCategory: ").append(toIndentedString(failedTestResultCategory)).append("\n");
     sb.append("    totalTestObject: ").append(toIndentedString(totalTestObject)).append("\n");
     sb.append("    totalDefects: ").append(toIndentedString(totalDefects)).append("\n");
-    sb.append("    totalAssertion: ").append(toIndentedString(totalAssertion)).append("\n");
-    sb.append("    passedAssertion: ").append(toIndentedString(passedAssertion)).append("\n");
-    sb.append("    failedAssertion: ").append(toIndentedString(failedAssertion)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -913,7 +812,7 @@ public class ExecutionTestResultResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

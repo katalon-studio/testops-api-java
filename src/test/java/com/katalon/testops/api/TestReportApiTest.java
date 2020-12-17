@@ -70,6 +70,23 @@ public class TestReportApiTest {
         // TODO: test validations
     }
     /**
+     * Saves and processes multiple uploaded TestOps reports.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void processTestOpsReportsTest() {
+        List<UploadBatchFileResource> body = null;
+        Long projectId = null;
+        String batch = null;
+        api.processTestOpsReports(body, projectId, batch);
+
+        // TODO: test validations
+    }
+    /**
      * 
      *
      * 

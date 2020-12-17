@@ -25,7 +25,6 @@ Name | Type | Description | Notes
 **project** | [**ProjectResource**](ProjectResource.md) |  |  [optional]
 **processId** | **Long** |  |  [optional]
 **nodeStatus** | [**NodeStatusEnum**](#NodeStatusEnum) |  |  [optional]
-**runConfigurationId** | **Long** |  |  [optional]
 
 <a name="StatusEnum"></a>
 ## Enum: StatusEnum

@@ -199,9 +199,6 @@ public class JobResource {
   }  @JsonProperty("nodeStatus")
   private NodeStatusEnum nodeStatus = null;
 
-  @JsonProperty("runConfigurationId")
-  private Long runConfigurationId = null;
-
   public JobResource id(Long id) {
     this.id = id;
     return this;
@@ -598,27 +595,9 @@ public class JobResource {
     this.nodeStatus = nodeStatus;
   }
 
-  public JobResource runConfigurationId(Long runConfigurationId) {
-    this.runConfigurationId = runConfigurationId;
-    return this;
-  }
-
-   /**
-   * Get runConfigurationId
-   * @return runConfigurationId
-  **/
-  @Schema(description = "")
-  public Long getRunConfigurationId() {
-    return runConfigurationId;
-  }
-
-  public void setRunConfigurationId(Long runConfigurationId) {
-    this.runConfigurationId = runConfigurationId;
-  }
-
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -647,13 +626,12 @@ public class JobResource {
         Objects.equals(this.scheduler, jobResource.scheduler) &&
         Objects.equals(this.project, jobResource.project) &&
         Objects.equals(this.processId, jobResource.processId) &&
-        Objects.equals(this.nodeStatus, jobResource.nodeStatus) &&
-        Objects.equals(this.runConfigurationId, jobResource.runConfigurationId);
+        Objects.equals(this.nodeStatus, jobResource.nodeStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, buildNumber, status, queuedAt, startTime, stopTime, testProject, execution, agent, k8sAgent, circleCiAgent, runConfiguration, order, parameter, triggerBy, duration, triggerAt, user, scheduler, project, processId, nodeStatus, runConfigurationId);
+    return Objects.hash(id, buildNumber, status, queuedAt, startTime, stopTime, testProject, execution, agent, k8sAgent, circleCiAgent, runConfiguration, order, parameter, triggerBy, duration, triggerAt, user, scheduler, project, processId, nodeStatus);
   }
 
 
@@ -684,7 +662,6 @@ public class JobResource {
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    processId: ").append(toIndentedString(processId)).append("\n");
     sb.append("    nodeStatus: ").append(toIndentedString(nodeStatus)).append("\n");
-    sb.append("    runConfigurationId: ").append(toIndentedString(runConfigurationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -693,7 +670,7 @@ public class JobResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

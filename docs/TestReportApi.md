@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**processMultipleS3File**](TestReportApi.md#processMultipleS3File) | **POST** /api/v1/katalon/test-reports/multiple | Saves and processes multiple uploaded Katalon reports.
 [**processS3File**](TestReportApi.md#processS3File) | **POST** /api/v1/katalon/test-reports | Saves and processes the uploaded Katalon reports.
+[**processTestOpsReports**](TestReportApi.md#processTestOpsReports) | **POST** /api/v1/testops-reports | Saves and processes multiple uploaded TestOps reports.
 [**updateResult**](TestReportApi.md#updateResult) | **POST** /api/v1/katalon/test-reports/update-result | 
 [**uploadJUnitReports**](TestReportApi.md#uploadJUnitReports) | **POST** /api/v1/junit/test-reports | Uploads and processes the JUnit reports to an Execution.
 [**uploadTestNGReports**](TestReportApi.md#uploadTestNGReports) | **POST** /api/v1/testng/test-reports | Uploads and processes the TestNG reports to an execution.
@@ -125,6 +126,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
+
+<a name="processTestOpsReports"></a>
+# **processTestOpsReports**
+> processTestOpsReports(body, projectId, batch)
+
+Saves and processes multiple uploaded TestOps reports.
+
+### Example
+```java
+// Import classes:
+//import com.katalon.testops.ApiClient;
+//import com.katalon.testops.ApiException;
+//import com.katalon.testops.Configuration;
+//import com.katalon.testops.auth.*;
+//import com.katalon.testops.api.TestReportApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Configure HTTP basic authorization: basicScheme
+HttpBasicAuth basicScheme = (HttpBasicAuth) defaultClient.getAuthentication("basicScheme");
+basicScheme.setUsername("YOUR USERNAME");
+basicScheme.setPassword("YOUR PASSWORD");
+
+TestReportApi apiInstance = new TestReportApi();
+List<UploadBatchFileResource> body = Arrays.asList(new UploadBatchFileResource()); // List<UploadBatchFileResource> | 
+Long projectId = 789L; // Long | 
+String batch = "batch_example"; // String | 
+try {
+    apiInstance.processTestOpsReports(body, projectId, batch);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TestReportApi#processTestOpsReports");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**List&lt;UploadBatchFileResource&gt;**](UploadBatchFileResource.md)|  |
+ **projectId** | **Long**|  |
+ **batch** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicScheme](../README.md#basicScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 <a name="updateResult"></a>
 # **updateResult**

@@ -25,11 +25,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 public class Pageable {
-  @JsonProperty("sort")
-  private Sort sort = null;
-
   @JsonProperty("offset")
   private Long offset = null;
+
+  @JsonProperty("sort")
+  private Sort sort = null;
 
   @JsonProperty("pageNumber")
   private Integer pageNumber = null;
@@ -42,24 +42,6 @@ public class Pageable {
 
   @JsonProperty("unpaged")
   private Boolean unpaged = null;
-
-  public Pageable sort(Sort sort) {
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @Schema(description = "")
-  public Sort getSort() {
-    return sort;
-  }
-
-  public void setSort(Sort sort) {
-    this.sort = sort;
-  }
 
   public Pageable offset(Long offset) {
     this.offset = offset;
@@ -77,6 +59,24 @@ public class Pageable {
 
   public void setOffset(Long offset) {
     this.offset = offset;
+  }
+
+  public Pageable sort(Sort sort) {
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @Schema(description = "")
+  public Sort getSort() {
+    return sort;
+  }
+
+  public void setSort(Sort sort) {
+    this.sort = sort;
   }
 
   public Pageable pageNumber(Integer pageNumber) {
@@ -153,7 +153,7 @@ public class Pageable {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -161,8 +161,8 @@ public class Pageable {
       return false;
     }
     Pageable pageable = (Pageable) o;
-    return Objects.equals(this.sort, pageable.sort) &&
-        Objects.equals(this.offset, pageable.offset) &&
+    return Objects.equals(this.offset, pageable.offset) &&
+        Objects.equals(this.sort, pageable.sort) &&
         Objects.equals(this.pageNumber, pageable.pageNumber) &&
         Objects.equals(this.pageSize, pageable.pageSize) &&
         Objects.equals(this.paged, pageable.paged) &&
@@ -171,7 +171,7 @@ public class Pageable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sort, offset, pageNumber, pageSize, paged, unpaged);
+    return Objects.hash(offset, sort, pageNumber, pageSize, paged, unpaged);
   }
 
 
@@ -180,8 +180,8 @@ public class Pageable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pageable {\n");
     
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    paged: ").append(toIndentedString(paged)).append("\n");
@@ -194,7 +194,7 @@ public class Pageable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

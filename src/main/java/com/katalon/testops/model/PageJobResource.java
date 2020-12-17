@@ -35,11 +35,8 @@ public class PageJobResource {
   @JsonProperty("totalPages")
   private Integer totalPages = null;
 
-  @JsonProperty("first")
-  private Boolean first = null;
-
-  @JsonProperty("sort")
-  private Sort sort = null;
+  @JsonProperty("numberOfElements")
+  private Integer numberOfElements = null;
 
   @JsonProperty("size")
   private Integer size = null;
@@ -50,8 +47,11 @@ public class PageJobResource {
   @JsonProperty("number")
   private Integer number = null;
 
-  @JsonProperty("numberOfElements")
-  private Integer numberOfElements = null;
+  @JsonProperty("first")
+  private Boolean first = null;
+
+  @JsonProperty("sort")
+  private Sort sort = null;
 
   @JsonProperty("pageable")
   private Pageable pageable = null;
@@ -98,40 +98,22 @@ public class PageJobResource {
     this.totalPages = totalPages;
   }
 
-  public PageJobResource first(Boolean first) {
-    this.first = first;
+  public PageJobResource numberOfElements(Integer numberOfElements) {
+    this.numberOfElements = numberOfElements;
     return this;
   }
 
    /**
-   * Get first
-   * @return first
+   * Get numberOfElements
+   * @return numberOfElements
   **/
   @Schema(description = "")
-  public Boolean isFirst() {
-    return first;
+  public Integer getNumberOfElements() {
+    return numberOfElements;
   }
 
-  public void setFirst(Boolean first) {
-    this.first = first;
-  }
-
-  public PageJobResource sort(Sort sort) {
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @Schema(description = "")
-  public Sort getSort() {
-    return sort;
-  }
-
-  public void setSort(Sort sort) {
-    this.sort = sort;
+  public void setNumberOfElements(Integer numberOfElements) {
+    this.numberOfElements = numberOfElements;
   }
 
   public PageJobResource size(Integer size) {
@@ -196,22 +178,40 @@ public class PageJobResource {
     this.number = number;
   }
 
-  public PageJobResource numberOfElements(Integer numberOfElements) {
-    this.numberOfElements = numberOfElements;
+  public PageJobResource first(Boolean first) {
+    this.first = first;
     return this;
   }
 
    /**
-   * Get numberOfElements
-   * @return numberOfElements
+   * Get first
+   * @return first
   **/
   @Schema(description = "")
-  public Integer getNumberOfElements() {
-    return numberOfElements;
+  public Boolean isFirst() {
+    return first;
   }
 
-  public void setNumberOfElements(Integer numberOfElements) {
-    this.numberOfElements = numberOfElements;
+  public void setFirst(Boolean first) {
+    this.first = first;
+  }
+
+  public PageJobResource sort(Sort sort) {
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @Schema(description = "")
+  public Sort getSort() {
+    return sort;
+  }
+
+  public void setSort(Sort sort) {
+    this.sort = sort;
   }
 
   public PageJobResource pageable(Pageable pageable) {
@@ -270,7 +270,7 @@ public class PageJobResource {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -280,12 +280,12 @@ public class PageJobResource {
     PageJobResource pageJobResource = (PageJobResource) o;
     return Objects.equals(this.totalElements, pageJobResource.totalElements) &&
         Objects.equals(this.totalPages, pageJobResource.totalPages) &&
-        Objects.equals(this.first, pageJobResource.first) &&
-        Objects.equals(this.sort, pageJobResource.sort) &&
+        Objects.equals(this.numberOfElements, pageJobResource.numberOfElements) &&
         Objects.equals(this.size, pageJobResource.size) &&
         Objects.equals(this.content, pageJobResource.content) &&
         Objects.equals(this.number, pageJobResource.number) &&
-        Objects.equals(this.numberOfElements, pageJobResource.numberOfElements) &&
+        Objects.equals(this.first, pageJobResource.first) &&
+        Objects.equals(this.sort, pageJobResource.sort) &&
         Objects.equals(this.pageable, pageJobResource.pageable) &&
         Objects.equals(this.last, pageJobResource.last) &&
         Objects.equals(this.empty, pageJobResource.empty);
@@ -293,7 +293,7 @@ public class PageJobResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalElements, totalPages, first, sort, size, content, number, numberOfElements, pageable, last, empty);
+    return Objects.hash(totalElements, totalPages, numberOfElements, size, content, number, first, sort, pageable, last, empty);
   }
 
 
@@ -304,12 +304,12 @@ public class PageJobResource {
     
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    pageable: ").append(toIndentedString(pageable)).append("\n");
     sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");
@@ -321,7 +321,7 @@ public class PageJobResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

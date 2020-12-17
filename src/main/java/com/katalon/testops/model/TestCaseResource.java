@@ -22,7 +22,6 @@ import com.katalon.testops.model.ExecutionTestResultResource;
 import com.katalon.testops.model.ExternalIssueResource;
 import com.katalon.testops.model.ProjectResource;
 import com.katalon.testops.model.TestCasePlatformStatisticsResource;
-import com.katalon.testops.model.TestResultAssertionResource;
 import com.katalon.testops.model.UserResource;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
@@ -158,9 +157,6 @@ public class TestCaseResource {
 
   @JsonProperty("maintainer")
   private UserResource maintainer = null;
-
-  @JsonProperty("testResultAssertion")
-  private TestResultAssertionResource testResultAssertion = null;
 
   @JsonProperty("urlId")
   private String urlId = null;
@@ -531,24 +527,6 @@ public class TestCaseResource {
     this.maintainer = maintainer;
   }
 
-  public TestCaseResource testResultAssertion(TestResultAssertionResource testResultAssertion) {
-    this.testResultAssertion = testResultAssertion;
-    return this;
-  }
-
-   /**
-   * Get testResultAssertion
-   * @return testResultAssertion
-  **/
-  @Schema(description = "")
-  public TestResultAssertionResource getTestResultAssertion() {
-    return testResultAssertion;
-  }
-
-  public void setTestResultAssertion(TestResultAssertionResource testResultAssertion) {
-    this.testResultAssertion = testResultAssertion;
-  }
-
   public TestCaseResource urlId(String urlId) {
     this.urlId = urlId;
     return this;
@@ -569,7 +547,7 @@ public class TestCaseResource {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -596,13 +574,12 @@ public class TestCaseResource {
         Objects.equals(this.flakiness, testCaseResource.flakiness) &&
         Objects.equals(this.platformStatistics, testCaseResource.platformStatistics) &&
         Objects.equals(this.maintainer, testCaseResource.maintainer) &&
-        Objects.equals(this.testResultAssertion, testCaseResource.testResultAssertion) &&
         Objects.equals(this.urlId, testCaseResource.urlId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, path, previousStatus, alias, testModuleId, webUrl, description, project, lastExecutionTestCase, externalIssues, type, averageDuration, maxDuration, minDuration, executionTestResults, flakiness, platformStatistics, maintainer, testResultAssertion, urlId);
+    return Objects.hash(id, name, path, previousStatus, alias, testModuleId, webUrl, description, project, lastExecutionTestCase, externalIssues, type, averageDuration, maxDuration, minDuration, executionTestResults, flakiness, platformStatistics, maintainer, urlId);
   }
 
 
@@ -630,7 +607,6 @@ public class TestCaseResource {
     sb.append("    flakiness: ").append(toIndentedString(flakiness)).append("\n");
     sb.append("    platformStatistics: ").append(toIndentedString(platformStatistics)).append("\n");
     sb.append("    maintainer: ").append(toIndentedString(maintainer)).append("\n");
-    sb.append("    testResultAssertion: ").append(toIndentedString(testResultAssertion)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -640,7 +616,7 @@ public class TestCaseResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

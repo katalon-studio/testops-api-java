@@ -46,7 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Long**|  |
- **name** | **String**|  | [enum: TIMEZONE, ASSERTION_PATTERN]
+ **name** | **String**|  | [enum: TIMEZONE]
 
 ### Return type
 

@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **descriptionId** | **Long** |  |  [optional]
 **logId** | **Long** |  |  [optional]
 **attachments** | [**List&lt;FileResource&gt;**](FileResource.md) |  |  [optional]
-**testResultAssertionsFailed** | [**List&lt;TestResultAssertionFailedResource&gt;**](TestResultAssertionFailedResource.md) |  |  [optional]
 **startTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **endTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **duration** | **Long** |  |  [optional]
@@ -31,9 +30,6 @@ Name | Type | Description | Notes
 **failedTestResultCategory** | [**FailedTestResultCategoryEnum**](#FailedTestResultCategoryEnum) |  |  [optional]
 **totalTestObject** | **Long** |  |  [optional]
 **totalDefects** | **Integer** |  |  [optional]
-**totalAssertion** | **Long** |  |  [optional]
-**passedAssertion** | **Long** |  |  [optional]
-**failedAssertion** | **Long** |  |  [optional]
 **urlId** | **String** |  |  [optional]
 
 <a name="StatusEnum"></a>

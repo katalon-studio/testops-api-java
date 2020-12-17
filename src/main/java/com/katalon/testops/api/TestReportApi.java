@@ -157,6 +157,49 @@ public class TestReportApi {
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
+     * Saves and processes multiple uploaded TestOps reports.
+     * 
+     * <p><b>200</b> - OK
+     * @param body The body parameter
+     * @param projectId The projectId parameter
+     * @param batch The batch parameter
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public void processTestOpsReports(List<UploadBatchFileResource> body, Long projectId, String batch) throws RestClientException {
+        Object postBody = body;
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'body' when calling processTestOpsReports");
+        }
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'projectId' when calling processTestOpsReports");
+        }
+        // verify the required parameter 'batch' is set
+        if (batch == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'batch' when calling processTestOpsReports");
+        }
+        String path = UriComponentsBuilder.fromPath("/api/v1/testops-reports").build().toUriString();
+        
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "projectId", projectId));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "batch", batch));
+
+        final String[] accepts = {  };
+        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+        final String[] contentTypes = { 
+            "application/json"
+         };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] { "basicScheme" };
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
+        apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    }
+    /**
      * 
      * 
      * <p><b>200</b> - OK

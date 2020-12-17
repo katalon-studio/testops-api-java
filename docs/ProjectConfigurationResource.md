@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 TIMEZONE | &quot;TIMEZONE&quot;
-ASSERTION_PATTERN | &quot;ASSERTION_PATTERN&quot;

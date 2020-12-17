@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**linkRelease**](ExecutionApi.md#linkRelease) | **POST** /api/v1/executions/{id}/link-release | Link an Execution to a Release. Returns the updated Execution detail.
 [**list**](ExecutionApi.md#list) | **GET** /api/v1/executions | 
 [**reImportExecution**](ExecutionApi.md#reImportExecution) | **POST** /api/v1/executions/reimport | Re-imports an Execution. Returns the newly imported Execution detail.
-[**rerunExecution**](ExecutionApi.md#rerunExecution) | **POST** /api/v1/executions/{id}/rerun | Rerun an Execution.
 [**terminatedExecution**](ExecutionApi.md#terminatedExecution) | **POST** /api/v1/executions/terminate | Terminates a running Execution. Returns the terminated Execution detail.
 [**unlinkRelease**](ExecutionApi.md#unlinkRelease) | **POST** /api/v1/executions/{id}/unlink-release | Unlink an Execution to a Release. Returns the updated Execution detail.
 
@@ -492,56 +491,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
-
-<a name="rerunExecution"></a>
-# **rerunExecution**
-> rerunExecution(id)
-
-Rerun an Execution.
-
-### Example
-```java
-// Import classes:
-//import com.katalon.testops.ApiClient;
-//import com.katalon.testops.ApiException;
-//import com.katalon.testops.Configuration;
-//import com.katalon.testops.auth.*;
-//import com.katalon.testops.api.ExecutionApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-// Configure HTTP basic authorization: basicScheme
-HttpBasicAuth basicScheme = (HttpBasicAuth) defaultClient.getAuthentication("basicScheme");
-basicScheme.setUsername("YOUR USERNAME");
-basicScheme.setPassword("YOUR PASSWORD");
-
-ExecutionApi apiInstance = new ExecutionApi();
-Long id = 789L; // Long | 
-try {
-    apiInstance.rerunExecution(id);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExecutionApi#rerunExecution");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Long**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[basicScheme](../README.md#basicScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 <a name="terminatedExecution"></a>
 # **terminatedExecution**

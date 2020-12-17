@@ -177,21 +177,6 @@ public class ExecutionApiTest {
         // TODO: test validations
     }
     /**
-     * Rerun an Execution.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void rerunExecutionTest() {
-        Long id = null;
-        api.rerunExecution(id);
-
-        // TODO: test validations
-    }
-    /**
      * Terminates a running Execution. Returns the terminated Execution detail.
      *
      * 

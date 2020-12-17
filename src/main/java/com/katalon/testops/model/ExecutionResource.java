@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.katalon.testops.model.ExecutionTestSuiteResource;
-import com.katalon.testops.model.JobResource;
 import com.katalon.testops.model.ProjectResource;
 import com.katalon.testops.model.ReleaseResource;
 import com.katalon.testops.model.TestSuiteCollectionEntityResource;
@@ -228,9 +227,6 @@ public class ExecutionResource {
 
   }  @JsonProperty("type")
   private TypeEnum type = null;
-
-  @JsonProperty("jobs")
-  private List<JobResource> jobs = null;
 
   public ExecutionResource status(StatusEnum status) {
     this.status = status;
@@ -806,35 +802,9 @@ public class ExecutionResource {
     this.type = type;
   }
 
-  public ExecutionResource jobs(List<JobResource> jobs) {
-    this.jobs = jobs;
-    return this;
-  }
-
-  public ExecutionResource addJobsItem(JobResource jobsItem) {
-    if (this.jobs == null) {
-      this.jobs = new ArrayList<JobResource>();
-    }
-    this.jobs.add(jobsItem);
-    return this;
-  }
-
-   /**
-   * Get jobs
-   * @return jobs
-  **/
-  @Schema(description = "")
-  public List<JobResource> getJobs() {
-    return jobs;
-  }
-
-  public void setJobs(List<JobResource> jobs) {
-    this.jobs = jobs;
-  }
-
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -872,13 +842,12 @@ public class ExecutionResource {
         Objects.equals(this.sessionId, executionResource.sessionId) &&
         Objects.equals(this.buildLabel, executionResource.buildLabel) &&
         Objects.equals(this.buildUrl, executionResource.buildUrl) &&
-        Objects.equals(this.type, executionResource.type) &&
-        Objects.equals(this.jobs, executionResource.jobs);
+        Objects.equals(this.type, executionResource.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, startTime, endTime, duration, elapsedDuration, totalTests, totalPassedTests, totalFailedTests, totalErrorTests, totalIncompleteTests, totalDiffTests, totalDiffPassedTests, totalDiffFailedTests, totalDiffErrorTests, totalDiffIncompleteTests, id, projectId, project, buildId, order, executionStage, webUrl, testSuiteCollections, executionTestSuiteResources, release, hasComment, user, sessionId, buildLabel, buildUrl, type, jobs);
+    return Objects.hash(status, startTime, endTime, duration, elapsedDuration, totalTests, totalPassedTests, totalFailedTests, totalErrorTests, totalIncompleteTests, totalDiffTests, totalDiffPassedTests, totalDiffFailedTests, totalDiffErrorTests, totalDiffIncompleteTests, id, projectId, project, buildId, order, executionStage, webUrl, testSuiteCollections, executionTestSuiteResources, release, hasComment, user, sessionId, buildLabel, buildUrl, type);
   }
 
 
@@ -918,7 +887,6 @@ public class ExecutionResource {
     sb.append("    buildLabel: ").append(toIndentedString(buildLabel)).append("\n");
     sb.append("    buildUrl: ").append(toIndentedString(buildUrl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    jobs: ").append(toIndentedString(jobs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -927,7 +895,7 @@ public class ExecutionResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
