@@ -8,7 +8,7 @@
     <artifactId>testops-client-openapi</artifactId>
     <version>1.0.0</version>
 
-    <name>Katalon TestOps Report Common</name>
+    <name>Katalon TestOps Client OpenAPI</name>
     <description>Katalon TestOps Report Common</description>
     <url>https://github.com/katalon-studio/testops-client-openapi-java</url>
     <inceptionYear>2020</inceptionYear>
