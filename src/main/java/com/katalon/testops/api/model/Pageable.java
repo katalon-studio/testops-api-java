@@ -30,8 +30,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Pageable
  */
 @JsonPropertyOrder({
-  Pageable.JSON_PROPERTY_SORT,
   Pageable.JSON_PROPERTY_OFFSET,
+  Pageable.JSON_PROPERTY_SORT,
   Pageable.JSON_PROPERTY_PAGE_NUMBER,
   Pageable.JSON_PROPERTY_PAGE_SIZE,
   Pageable.JSON_PROPERTY_PAGED,
@@ -42,11 +42,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Pageable implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SORT = "sort";
-  private Sort sort;
-
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Long offset;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private Sort sort;
 
   public static final String JSON_PROPERTY_PAGE_NUMBER = "pageNumber";
   private Integer pageNumber;
@@ -59,31 +59,6 @@ public class Pageable implements Serializable {
 
   public static final String JSON_PROPERTY_UNPAGED = "unpaged";
   private Boolean unpaged;
-
-
-  public Pageable sort(Sort sort) {
-    
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Sort getSort() {
-    return sort;
-  }
-
-
-  public void setSort(Sort sort) {
-    this.sort = sort;
-  }
 
 
   public Pageable offset(Long offset) {
@@ -108,6 +83,31 @@ public class Pageable implements Serializable {
 
   public void setOffset(Long offset) {
     this.offset = offset;
+  }
+
+
+  public Pageable sort(Sort sort) {
+    
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Sort getSort() {
+    return sort;
+  }
+
+
+  public void setSort(Sort sort) {
+    this.sort = sort;
   }
 
 
@@ -220,8 +220,8 @@ public class Pageable implements Serializable {
       return false;
     }
     Pageable pageable = (Pageable) o;
-    return Objects.equals(this.sort, pageable.sort) &&
-        Objects.equals(this.offset, pageable.offset) &&
+    return Objects.equals(this.offset, pageable.offset) &&
+        Objects.equals(this.sort, pageable.sort) &&
         Objects.equals(this.pageNumber, pageable.pageNumber) &&
         Objects.equals(this.pageSize, pageable.pageSize) &&
         Objects.equals(this.paged, pageable.paged) &&
@@ -230,7 +230,7 @@ public class Pageable implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sort, offset, pageNumber, pageSize, paged, unpaged);
+    return Objects.hash(offset, sort, pageNumber, pageSize, paged, unpaged);
   }
 
 
@@ -238,8 +238,8 @@ public class Pageable implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pageable {\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    paged: ").append(toIndentedString(paged)).append("\n");

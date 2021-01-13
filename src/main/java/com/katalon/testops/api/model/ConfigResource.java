@@ -42,9 +42,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ConfigResource.JSON_PROPERTY_SENTRY_DSN,
   ConfigResource.JSON_PROPERTY_SENTRY_ENV,
   ConfigResource.JSON_PROPERTY_SERVER_URL,
+  ConfigResource.JSON_PROPERTY_IO_SERVER_URL,
   ConfigResource.JSON_PROPERTY_MAX_EXECUTION_COMPARISON,
   ConfigResource.JSON_PROPERTY_MAX_EXECUTION_DOWNLOAD,
   ConfigResource.JSON_PROPERTY_AGENT_DOWNLOAD_URLS,
+  ConfigResource.JSON_PROPERTY_REPORT_UPLOADER_DOWNLOAD_URL,
+  ConfigResource.JSON_PROPERTY_REPORT_UPLOADER_LATEST_VERSION,
   ConfigResource.JSON_PROPERTY_SUB_DOMAIN_PATTERN,
   ConfigResource.JSON_PROPERTY_CANCELLATION_SURVEY_URL,
   ConfigResource.JSON_PROPERTY_ADVANCED_FEATURE_ENABLED,
@@ -82,6 +85,9 @@ public class ConfigResource implements Serializable {
   public static final String JSON_PROPERTY_SERVER_URL = "serverUrl";
   private String serverUrl;
 
+  public static final String JSON_PROPERTY_IO_SERVER_URL = "ioServerUrl";
+  private String ioServerUrl;
+
   public static final String JSON_PROPERTY_MAX_EXECUTION_COMPARISON = "maxExecutionComparison";
   private Long maxExecutionComparison;
 
@@ -90,6 +96,12 @@ public class ConfigResource implements Serializable {
 
   public static final String JSON_PROPERTY_AGENT_DOWNLOAD_URLS = "agentDownloadUrls";
   private Map<String, String> agentDownloadUrls = null;
+
+  public static final String JSON_PROPERTY_REPORT_UPLOADER_DOWNLOAD_URL = "reportUploaderDownloadUrl";
+  private String reportUploaderDownloadUrl;
+
+  public static final String JSON_PROPERTY_REPORT_UPLOADER_LATEST_VERSION = "reportUploaderLatestVersion";
+  private String reportUploaderLatestVersion;
 
   public static final String JSON_PROPERTY_SUB_DOMAIN_PATTERN = "subDomainPattern";
   private String subDomainPattern;
@@ -337,6 +349,31 @@ public class ConfigResource implements Serializable {
   }
 
 
+  public ConfigResource ioServerUrl(String ioServerUrl) {
+    
+    this.ioServerUrl = ioServerUrl;
+    return this;
+  }
+
+   /**
+   * Get ioServerUrl
+   * @return ioServerUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IO_SERVER_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIoServerUrl() {
+    return ioServerUrl;
+  }
+
+
+  public void setIoServerUrl(String ioServerUrl) {
+    this.ioServerUrl = ioServerUrl;
+  }
+
+
   public ConfigResource maxExecutionComparison(Long maxExecutionComparison) {
     
     this.maxExecutionComparison = maxExecutionComparison;
@@ -417,6 +454,56 @@ public class ConfigResource implements Serializable {
 
   public void setAgentDownloadUrls(Map<String, String> agentDownloadUrls) {
     this.agentDownloadUrls = agentDownloadUrls;
+  }
+
+
+  public ConfigResource reportUploaderDownloadUrl(String reportUploaderDownloadUrl) {
+    
+    this.reportUploaderDownloadUrl = reportUploaderDownloadUrl;
+    return this;
+  }
+
+   /**
+   * Get reportUploaderDownloadUrl
+   * @return reportUploaderDownloadUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REPORT_UPLOADER_DOWNLOAD_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReportUploaderDownloadUrl() {
+    return reportUploaderDownloadUrl;
+  }
+
+
+  public void setReportUploaderDownloadUrl(String reportUploaderDownloadUrl) {
+    this.reportUploaderDownloadUrl = reportUploaderDownloadUrl;
+  }
+
+
+  public ConfigResource reportUploaderLatestVersion(String reportUploaderLatestVersion) {
+    
+    this.reportUploaderLatestVersion = reportUploaderLatestVersion;
+    return this;
+  }
+
+   /**
+   * Get reportUploaderLatestVersion
+   * @return reportUploaderLatestVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REPORT_UPLOADER_LATEST_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReportUploaderLatestVersion() {
+    return reportUploaderLatestVersion;
+  }
+
+
+  public void setReportUploaderLatestVersion(String reportUploaderLatestVersion) {
+    this.reportUploaderLatestVersion = reportUploaderLatestVersion;
   }
 
 
@@ -538,9 +625,12 @@ public class ConfigResource implements Serializable {
         Objects.equals(this.sentryDsn, configResource.sentryDsn) &&
         Objects.equals(this.sentryEnv, configResource.sentryEnv) &&
         Objects.equals(this.serverUrl, configResource.serverUrl) &&
+        Objects.equals(this.ioServerUrl, configResource.ioServerUrl) &&
         Objects.equals(this.maxExecutionComparison, configResource.maxExecutionComparison) &&
         Objects.equals(this.maxExecutionDownload, configResource.maxExecutionDownload) &&
         Objects.equals(this.agentDownloadUrls, configResource.agentDownloadUrls) &&
+        Objects.equals(this.reportUploaderDownloadUrl, configResource.reportUploaderDownloadUrl) &&
+        Objects.equals(this.reportUploaderLatestVersion, configResource.reportUploaderLatestVersion) &&
         Objects.equals(this.subDomainPattern, configResource.subDomainPattern) &&
         Objects.equals(this.cancellationSurveyUrl, configResource.cancellationSurveyUrl) &&
         Objects.equals(this.advancedFeatureEnabled, configResource.advancedFeatureEnabled) &&
@@ -549,7 +639,7 @@ public class ConfigResource implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(webSocketUrl, storeUrl, profiles, stripePublicApi, buildVersion, commitId, sentryDsn, sentryEnv, serverUrl, maxExecutionComparison, maxExecutionDownload, agentDownloadUrls, subDomainPattern, cancellationSurveyUrl, advancedFeatureEnabled, usingSubDomain);
+    return Objects.hash(webSocketUrl, storeUrl, profiles, stripePublicApi, buildVersion, commitId, sentryDsn, sentryEnv, serverUrl, ioServerUrl, maxExecutionComparison, maxExecutionDownload, agentDownloadUrls, reportUploaderDownloadUrl, reportUploaderLatestVersion, subDomainPattern, cancellationSurveyUrl, advancedFeatureEnabled, usingSubDomain);
   }
 
 
@@ -566,9 +656,12 @@ public class ConfigResource implements Serializable {
     sb.append("    sentryDsn: ").append(toIndentedString(sentryDsn)).append("\n");
     sb.append("    sentryEnv: ").append(toIndentedString(sentryEnv)).append("\n");
     sb.append("    serverUrl: ").append(toIndentedString(serverUrl)).append("\n");
+    sb.append("    ioServerUrl: ").append(toIndentedString(ioServerUrl)).append("\n");
     sb.append("    maxExecutionComparison: ").append(toIndentedString(maxExecutionComparison)).append("\n");
     sb.append("    maxExecutionDownload: ").append(toIndentedString(maxExecutionDownload)).append("\n");
     sb.append("    agentDownloadUrls: ").append(toIndentedString(agentDownloadUrls)).append("\n");
+    sb.append("    reportUploaderDownloadUrl: ").append(toIndentedString(reportUploaderDownloadUrl)).append("\n");
+    sb.append("    reportUploaderLatestVersion: ").append(toIndentedString(reportUploaderLatestVersion)).append("\n");
     sb.append("    subDomainPattern: ").append(toIndentedString(subDomainPattern)).append("\n");
     sb.append("    cancellationSurveyUrl: ").append(toIndentedString(cancellationSurveyUrl)).append("\n");
     sb.append("    advancedFeatureEnabled: ").append(toIndentedString(advancedFeatureEnabled)).append("\n");

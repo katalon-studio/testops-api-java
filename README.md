@@ -134,6 +134,8 @@ Class | Method | HTTP request | Description
 *ExecutionApi* | [**linkRelease**](docs/ExecutionApi.md#linkRelease) | **POST** /api/v1/executions/{id}/link-release | Link an Execution to a Release. Returns the updated Execution detail.
 *ExecutionApi* | [**list**](docs/ExecutionApi.md#list) | **GET** /api/v1/executions | 
 *ExecutionApi* | [**reImportExecution**](docs/ExecutionApi.md#reImportExecution) | **POST** /api/v1/executions/reimport | Re-imports an Execution. Returns the newly imported Execution detail.
+*ExecutionApi* | [**rerunExecution**](docs/ExecutionApi.md#rerunExecution) | **POST** /api/v1/executions/{id}/rerun | Rerun an Execution.
+*ExecutionApi* | [**shareExecutionReport**](docs/ExecutionApi.md#shareExecutionReport) | **POST** /api/v1/executions/{id}/share-report | Allow users to send email with attached execution reports [PDF].
 *ExecutionApi* | [**terminatedExecution**](docs/ExecutionApi.md#terminatedExecution) | **POST** /api/v1/executions/terminate | Terminates a running Execution. Returns the terminated Execution detail.
 *ExecutionApi* | [**unlinkRelease**](docs/ExecutionApi.md#unlinkRelease) | **POST** /api/v1/executions/{id}/unlink-release | Unlink an Execution to a Release. Returns the updated Execution detail.
 *ExecutionRequestApi* | [**download**](docs/ExecutionRequestApi.md#download) | **GET** /api/v1/requests/{id}/download | Downloads an Execution Request report. Returns the report file.
@@ -157,6 +159,8 @@ Class | Method | HTTP request | Description
 *KatalonRecorderApi* | [**backup**](docs/KatalonRecorderApi.md#backup) | **POST** /api/v1/katalon-recorder/backup | Saves a Katalon Recorder backup detail.
 *KatalonRecorderApi* | [**download3**](docs/KatalonRecorderApi.md#download3) | **GET** /api/v1/katalon-recorder/backup/{id}/download | Downloads a Katalon Recorder backup. Returns the backup file.
 *KatalonRecorderApi* | [**upload**](docs/KatalonRecorderApi.md#upload) | **POST** /api/v1/katalon-recorder/test-reports | Uploads and processes a Katalon Recorder report.
+*OrganizationTrialRequestResourceControllerApi* | [**getTrialRequest**](docs/OrganizationTrialRequestResourceControllerApi.md#getTrialRequest) | **GET** /api/v1/organizations/{id}/trial-request | Get organization trial request data
+*OrganizationTrialRequestResourceControllerApi* | [**submitTrialRequest**](docs/OrganizationTrialRequestResourceControllerApi.md#submitTrialRequest) | **POST** /api/v1/organizations/{id}/trial-request | Submit organization trial request
 *ProjectApi* | [**create2**](docs/ProjectApi.md#create2) | **POST** /api/v1/projects | Creates a new Project. Returns the created Project detail.
 *ProjectApi* | [**createOrUpdate**](docs/ProjectApi.md#createOrUpdate) | **POST** /api/v1/project-settings | 
 *ProjectApi* | [**createSampleData**](docs/ProjectApi.md#createSampleData) | **POST** /api/v1/projects/{id}/sample-data | Create sample data for project.
@@ -165,6 +169,7 @@ Class | Method | HTTP request | Description
 *ProjectApi* | [**get6**](docs/ProjectApi.md#get6) | **GET** /api/v1/project-settings/{id} | 
 *ProjectApi* | [**list1**](docs/ProjectApi.md#list1) | **GET** /api/v1/projects | Returns all Projects of a Team.
 *ProjectApi* | [**update2**](docs/ProjectApi.md#update2) | **PUT** /api/v1/projects | Updates a Project detail. Returns the updated Project detail.
+*ProjectApi* | [**updateStatus**](docs/ProjectApi.md#updateStatus) | **PUT** /api/v1/projects/update-status | Updates a Project status. Returns the updated Project detail.
 *ProjectConfigurationResourceControllerApi* | [**get14**](docs/ProjectConfigurationResourceControllerApi.md#get14) | **GET** /api/v1/project-configurations/{id} | 
 *ProjectConfigurationResourceControllerApi* | [**listTimeZones**](docs/ProjectConfigurationResourceControllerApi.md#listTimeZones) | **GET** /api/v1/time-zones | 
 *ProjectConfigurationResourceControllerApi* | [**update8**](docs/ProjectConfigurationResourceControllerApi.md#update8) | **POST** /api/v1/project-configurations/{id} | 
@@ -240,6 +245,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [ExecutionRequestResource](docs/ExecutionRequestResource.md)
  - [ExecutionResource](docs/ExecutionResource.md)
+ - [ExecutionShareReportResource](docs/ExecutionShareReportResource.md)
  - [ExecutionTestCaseResource](docs/ExecutionTestCaseResource.md)
  - [ExecutionTestResultIdentifyResource](docs/ExecutionTestResultIdentifyResource.md)
  - [ExecutionTestResultResource](docs/ExecutionTestResultResource.md)
@@ -255,6 +261,7 @@ Class | Method | HTTP request | Description
  - [K8SAgentResource](docs/K8SAgentResource.md)
  - [OrganizationFeatureFlagResource](docs/OrganizationFeatureFlagResource.md)
  - [OrganizationResource](docs/OrganizationResource.md)
+ - [OrganizationTrialRequestResource](docs/OrganizationTrialRequestResource.md)
  - [PageBaseResource](docs/PageBaseResource.md)
  - [PageExecutionResource](docs/PageExecutionResource.md)
  - [PageJobResource](docs/PageJobResource.md)
@@ -282,6 +289,8 @@ Class | Method | HTTP request | Description
  - [TestObjectEntityResource](docs/TestObjectEntityResource.md)
  - [TestObjectResource](docs/TestObjectResource.md)
  - [TestProjectResource](docs/TestProjectResource.md)
+ - [TestResultAssertionFailedResource](docs/TestResultAssertionFailedResource.md)
+ - [TestResultAssertionResource](docs/TestResultAssertionResource.md)
  - [TestRunResult](docs/TestRunResult.md)
  - [TestSuiteCollectionEntityResource](docs/TestSuiteCollectionEntityResource.md)
  - [TestSuiteCollectionResource](docs/TestSuiteCollectionResource.md)

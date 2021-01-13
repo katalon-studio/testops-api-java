@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get6**](ProjectApi.md#get6) | **GET** /api/v1/project-settings/{id} | 
 [**list1**](ProjectApi.md#list1) | **GET** /api/v1/projects | Returns all Projects of a Team.
 [**update2**](ProjectApi.md#update2) | **PUT** /api/v1/projects | Updates a Project detail. Returns the updated Project detail.
+[**updateStatus**](ProjectApi.md#updateStatus) | **PUT** /api/v1/projects/update-status | Updates a Project status. Returns the updated Project detail.
 
 
 
@@ -533,6 +534,75 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectApi#update2");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectResource** | [**ProjectResource**](ProjectResource.md)|  |
+
+### Return type
+
+[**ProjectResource**](ProjectResource.md)
+
+### Authorization
+
+[basicScheme](../README.md#basicScheme)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+
+## updateStatus
+
+> ProjectResource updateStatus(projectResource)
+
+Updates a Project status. Returns the updated Project detail.
+
+### Example
+
+```java
+// Import classes:
+import com.katalon.testops.api.ApiClient;
+import com.katalon.testops.api.ApiException;
+import com.katalon.testops.api.Configuration;
+import com.katalon.testops.api.auth.*;
+import com.katalon.testops.api.models.*;
+import com.katalon.testops.api.api.ProjectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8443");
+        
+        // Configure HTTP basic authorization: basicScheme
+        HttpBasicAuth basicScheme = (HttpBasicAuth) defaultClient.getAuthentication("basicScheme");
+        basicScheme.setUsername("YOUR USERNAME");
+        basicScheme.setPassword("YOUR PASSWORD");
+
+        ProjectApi apiInstance = new ProjectApi(defaultClient);
+        ProjectResource projectResource = new ProjectResource(); // ProjectResource | 
+        try {
+            ProjectResource result = apiInstance.updateStatus(projectResource);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectApi#updateStatus");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

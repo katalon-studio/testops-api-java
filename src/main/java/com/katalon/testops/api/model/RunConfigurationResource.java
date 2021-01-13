@@ -44,6 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RunConfigurationResource.JSON_PROPERTY_PROJECT_ID,
   RunConfigurationResource.JSON_PROPERTY_TEAM_ID,
   RunConfigurationResource.JSON_PROPERTY_TEST_PROJECT_ID,
+  RunConfigurationResource.JSON_PROPERTY_RELEASE_ID,
   RunConfigurationResource.JSON_PROPERTY_TEST_SUITE_COLLECTION_ID,
   RunConfigurationResource.JSON_PROPERTY_TIME_OUT,
   RunConfigurationResource.JSON_PROPERTY_CONFIG_TYPE,
@@ -81,6 +82,9 @@ public class RunConfigurationResource implements Serializable {
 
   public static final String JSON_PROPERTY_TEST_PROJECT_ID = "testProjectId";
   private Long testProjectId;
+
+  public static final String JSON_PROPERTY_RELEASE_ID = "releaseId";
+  private Long releaseId;
 
   public static final String JSON_PROPERTY_TEST_SUITE_COLLECTION_ID = "testSuiteCollectionId";
   private Long testSuiteCollectionId;
@@ -348,6 +352,31 @@ public class RunConfigurationResource implements Serializable {
 
   public void setTestProjectId(Long testProjectId) {
     this.testProjectId = testProjectId;
+  }
+
+
+  public RunConfigurationResource releaseId(Long releaseId) {
+    
+    this.releaseId = releaseId;
+    return this;
+  }
+
+   /**
+   * Get releaseId
+   * @return releaseId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RELEASE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getReleaseId() {
+    return releaseId;
+  }
+
+
+  public void setReleaseId(Long releaseId) {
+    this.releaseId = releaseId;
   }
 
 
@@ -740,6 +769,7 @@ public class RunConfigurationResource implements Serializable {
         Objects.equals(this.projectId, runConfigurationResource.projectId) &&
         Objects.equals(this.teamId, runConfigurationResource.teamId) &&
         Objects.equals(this.testProjectId, runConfigurationResource.testProjectId) &&
+        Objects.equals(this.releaseId, runConfigurationResource.releaseId) &&
         Objects.equals(this.testSuiteCollectionId, runConfigurationResource.testSuiteCollectionId) &&
         Objects.equals(this.timeOut, runConfigurationResource.timeOut) &&
         Objects.equals(this.configType, runConfigurationResource.configType) &&
@@ -758,7 +788,7 @@ public class RunConfigurationResource implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, command, projectId, teamId, testProjectId, testSuiteCollectionId, timeOut, configType, testProject, agents, k8sAgents, circleCIAgents, cloudType, latestJob, genericCommand, ksVersion, ksLocation, nextRunScheduler, release);
+    return Objects.hash(id, name, command, projectId, teamId, testProjectId, releaseId, testSuiteCollectionId, timeOut, configType, testProject, agents, k8sAgents, circleCIAgents, cloudType, latestJob, genericCommand, ksVersion, ksLocation, nextRunScheduler, release);
   }
 
 
@@ -772,6 +802,7 @@ public class RunConfigurationResource implements Serializable {
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    testProjectId: ").append(toIndentedString(testProjectId)).append("\n");
+    sb.append("    releaseId: ").append(toIndentedString(releaseId)).append("\n");
     sb.append("    testSuiteCollectionId: ").append(toIndentedString(testSuiteCollectionId)).append("\n");
     sb.append("    timeOut: ").append(toIndentedString(timeOut)).append("\n");
     sb.append("    configType: ").append(toIndentedString(configType)).append("\n");

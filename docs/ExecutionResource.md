@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **buildLabel** | **String** |  |  [optional]
 **buildUrl** | **String** |  |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) |  |  [optional]
+**jobs** | [**List&lt;JobResource&gt;**](JobResource.md) |  |  [optional]
 
 
 

@@ -3,6 +3,7 @@ package com.katalon.testops.api.api;
 import com.katalon.testops.api.ApiClient;
 
 import com.katalon.testops.api.model.ExecutionResource;
+import com.katalon.testops.api.model.ExecutionShareReportResource;
 import com.katalon.testops.api.model.PageExecutionResource;
 import com.katalon.testops.api.model.Pageable;
 
@@ -542,6 +543,109 @@ public class ExecutionApi {
         String[] authNames = new String[] { "basicScheme" };
 
         ParameterizedTypeReference<ExecutionResource> returnType = new ParameterizedTypeReference<ExecutionResource>() {};
+        return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
+    }
+    /**
+     * Rerun an Execution.
+     * 
+     * <p><b>204</b> - No Content
+     * @param id  (required)
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public void rerunExecution(Long id) throws RestClientException {
+        rerunExecutionWithHttpInfo(id);
+    }
+
+    /**
+     * Rerun an Execution.
+     * 
+     * <p><b>204</b> - No Content
+     * @param id  (required)
+     * @return ResponseEntity&lt;Void&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Void> rerunExecutionWithHttpInfo(Long id) throws RestClientException {
+        Object postBody = null;
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'id' when calling rerunExecution");
+        }
+        
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("id", id);
+        String path = apiClient.expandPath("/api/v1/executions/{id}/rerun", uriVariables);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = {  };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] contentTypes = {  };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] { "basicScheme" };
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
+        return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
+    }
+    /**
+     * Allow users to send email with attached execution reports [PDF].
+     * 
+     * <p><b>204</b> - No Content
+     * @param id  (required)
+     * @param executionShareReportResource  (required)
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public void shareExecutionReport(Long id, ExecutionShareReportResource executionShareReportResource) throws RestClientException {
+        shareExecutionReportWithHttpInfo(id, executionShareReportResource);
+    }
+
+    /**
+     * Allow users to send email with attached execution reports [PDF].
+     * 
+     * <p><b>204</b> - No Content
+     * @param id  (required)
+     * @param executionShareReportResource  (required)
+     * @return ResponseEntity&lt;Void&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Void> shareExecutionReportWithHttpInfo(Long id, ExecutionShareReportResource executionShareReportResource) throws RestClientException {
+        Object postBody = executionShareReportResource;
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'id' when calling shareExecutionReport");
+        }
+        
+        // verify the required parameter 'executionShareReportResource' is set
+        if (executionShareReportResource == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'executionShareReportResource' when calling shareExecutionReport");
+        }
+        
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("id", id);
+        String path = apiClient.expandPath("/api/v1/executions/{id}/share-report", uriVariables);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = {  };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] contentTypes = { 
+            "application/json"
+         };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] { "basicScheme" };
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
     }
     /**

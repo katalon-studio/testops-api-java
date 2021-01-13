@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**linkRelease**](ExecutionApi.md#linkRelease) | **POST** /api/v1/executions/{id}/link-release | Link an Execution to a Release. Returns the updated Execution detail.
 [**list**](ExecutionApi.md#list) | **GET** /api/v1/executions | 
 [**reImportExecution**](ExecutionApi.md#reImportExecution) | **POST** /api/v1/executions/reimport | Re-imports an Execution. Returns the newly imported Execution detail.
+[**rerunExecution**](ExecutionApi.md#rerunExecution) | **POST** /api/v1/executions/{id}/rerun | Rerun an Execution.
+[**shareExecutionReport**](ExecutionApi.md#shareExecutionReport) | **POST** /api/v1/executions/{id}/share-report | Allow users to send email with attached execution reports [PDF].
 [**terminatedExecution**](ExecutionApi.md#terminatedExecution) | **POST** /api/v1/executions/terminate | Terminates a running Execution. Returns the terminated Execution detail.
 [**unlinkRelease**](ExecutionApi.md#unlinkRelease) | **POST** /api/v1/executions/{id}/unlink-release | Unlink an Execution to a Release. Returns the updated Execution detail.
 
@@ -654,6 +656,144 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+
+
+## rerunExecution
+
+> rerunExecution(id)
+
+Rerun an Execution.
+
+### Example
+
+```java
+// Import classes:
+import com.katalon.testops.api.ApiClient;
+import com.katalon.testops.api.ApiException;
+import com.katalon.testops.api.Configuration;
+import com.katalon.testops.api.auth.*;
+import com.katalon.testops.api.models.*;
+import com.katalon.testops.api.api.ExecutionApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8443");
+        
+        // Configure HTTP basic authorization: basicScheme
+        HttpBasicAuth basicScheme = (HttpBasicAuth) defaultClient.getAuthentication("basicScheme");
+        basicScheme.setUsername("YOUR USERNAME");
+        basicScheme.setPassword("YOUR PASSWORD");
+
+        ExecutionApi apiInstance = new ExecutionApi(defaultClient);
+        Long id = 56L; // Long | 
+        try {
+            apiInstance.rerunExecution(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExecutionApi#rerunExecution");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Long**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicScheme](../README.md#basicScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+
+## shareExecutionReport
+
+> shareExecutionReport(id, executionShareReportResource)
+
+Allow users to send email with attached execution reports [PDF].
+
+### Example
+
+```java
+// Import classes:
+import com.katalon.testops.api.ApiClient;
+import com.katalon.testops.api.ApiException;
+import com.katalon.testops.api.Configuration;
+import com.katalon.testops.api.auth.*;
+import com.katalon.testops.api.models.*;
+import com.katalon.testops.api.api.ExecutionApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost:8443");
+        
+        // Configure HTTP basic authorization: basicScheme
+        HttpBasicAuth basicScheme = (HttpBasicAuth) defaultClient.getAuthentication("basicScheme");
+        basicScheme.setUsername("YOUR USERNAME");
+        basicScheme.setPassword("YOUR PASSWORD");
+
+        ExecutionApi apiInstance = new ExecutionApi(defaultClient);
+        Long id = 56L; // Long | 
+        ExecutionShareReportResource executionShareReportResource = new ExecutionShareReportResource(); // ExecutionShareReportResource | 
+        try {
+            apiInstance.shareExecutionReport(id, executionShareReportResource);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExecutionApi#shareExecutionReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Long**|  |
+ **executionShareReportResource** | [**ExecutionShareReportResource**](ExecutionShareReportResource.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicScheme](../README.md#basicScheme)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 
 
 ## terminatedExecution

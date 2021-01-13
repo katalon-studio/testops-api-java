@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## processTestOpsReports
 
-> processTestOpsReports(projectId, batch, uploadBatchFileResource)
+> UploadBatchResource processTestOpsReports(projectId, batch, uploadBatchFileResource)
 
 Saves and processes multiple uploaded TestOps reports.
 
@@ -197,7 +197,8 @@ public class Example {
         String batch = "batch_example"; // String | 
         List<UploadBatchFileResource> uploadBatchFileResource = Arrays.asList(); // List<UploadBatchFileResource> | 
         try {
-            apiInstance.processTestOpsReports(projectId, batch, uploadBatchFileResource);
+            UploadBatchResource result = apiInstance.processTestOpsReports(projectId, batch, uploadBatchFileResource);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TestReportApi#processTestOpsReports");
             System.err.println("Status code: " + e.getCode());
@@ -220,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UploadBatchResource**](UploadBatchResource.md)
 
 ### Authorization
 
@@ -229,7 +230,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |

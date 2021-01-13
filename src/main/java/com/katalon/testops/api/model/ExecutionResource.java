@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.katalon.testops.api.model.ExecutionTestSuiteResource;
+import com.katalon.testops.api.model.JobResource;
 import com.katalon.testops.api.model.ProjectResource;
 import com.katalon.testops.api.model.ReleaseResource;
 import com.katalon.testops.api.model.TestSuiteCollectionEntityResource;
@@ -67,7 +68,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ExecutionResource.JSON_PROPERTY_SESSION_ID,
   ExecutionResource.JSON_PROPERTY_BUILD_LABEL,
   ExecutionResource.JSON_PROPERTY_BUILD_URL,
-  ExecutionResource.JSON_PROPERTY_TYPE
+  ExecutionResource.JSON_PROPERTY_TYPE,
+  ExecutionResource.JSON_PROPERTY_JOBS
 })
 @JsonTypeName("ExecutionResource")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -291,6 +293,9 @@ public class ExecutionResource implements Serializable {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_JOBS = "jobs";
+  private List<JobResource> jobs = null;
 
 
   public ExecutionResource status(StatusEnum status) {
@@ -1084,6 +1089,39 @@ public class ExecutionResource implements Serializable {
   }
 
 
+  public ExecutionResource jobs(List<JobResource> jobs) {
+    
+    this.jobs = jobs;
+    return this;
+  }
+
+  public ExecutionResource addJobsItem(JobResource jobsItem) {
+    if (this.jobs == null) {
+      this.jobs = new ArrayList<>();
+    }
+    this.jobs.add(jobsItem);
+    return this;
+  }
+
+   /**
+   * Get jobs
+   * @return jobs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_JOBS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<JobResource> getJobs() {
+    return jobs;
+  }
+
+
+  public void setJobs(List<JobResource> jobs) {
+    this.jobs = jobs;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1123,12 +1161,13 @@ public class ExecutionResource implements Serializable {
         Objects.equals(this.sessionId, executionResource.sessionId) &&
         Objects.equals(this.buildLabel, executionResource.buildLabel) &&
         Objects.equals(this.buildUrl, executionResource.buildUrl) &&
-        Objects.equals(this.type, executionResource.type);
+        Objects.equals(this.type, executionResource.type) &&
+        Objects.equals(this.jobs, executionResource.jobs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, startTime, endTime, duration, elapsedDuration, totalTests, totalPassedTests, totalFailedTests, totalErrorTests, totalIncompleteTests, totalDiffTests, totalDiffPassedTests, totalDiffFailedTests, totalDiffErrorTests, totalDiffIncompleteTests, id, projectId, project, buildId, order, executionStage, webUrl, testSuiteCollections, executionTestSuiteResources, release, hasComment, user, sessionId, buildLabel, buildUrl, type);
+    return Objects.hash(status, startTime, endTime, duration, elapsedDuration, totalTests, totalPassedTests, totalFailedTests, totalErrorTests, totalIncompleteTests, totalDiffTests, totalDiffPassedTests, totalDiffFailedTests, totalDiffErrorTests, totalDiffIncompleteTests, id, projectId, project, buildId, order, executionStage, webUrl, testSuiteCollections, executionTestSuiteResources, release, hasComment, user, sessionId, buildLabel, buildUrl, type, jobs);
   }
 
 
@@ -1167,6 +1206,7 @@ public class ExecutionResource implements Serializable {
     sb.append("    buildLabel: ").append(toIndentedString(buildLabel)).append("\n");
     sb.append("    buildUrl: ").append(toIndentedString(buildUrl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    jobs: ").append(toIndentedString(jobs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

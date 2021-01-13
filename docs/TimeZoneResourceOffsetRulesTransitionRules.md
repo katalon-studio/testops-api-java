@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **month** | [**MonthEnum**](#MonthEnum) |  |  [optional]
 **timeDefinition** | [**TimeDefinitionEnum**](#TimeDefinitionEnum) |  |  [optional]
-**localTime** | [**org.joda.time.***](org.joda.time.*.md) |  |  [optional]
 **dayOfWeek** | [**DayOfWeekEnum**](#DayOfWeekEnum) |  |  [optional]
 **dayOfMonthIndicator** | **Integer** |  |  [optional]
 **midnightEndOfDay** | **Boolean** |  |  [optional]
+**localTime** | [**org.joda.time.***](org.joda.time.*.md) |  |  [optional]
 
 
 

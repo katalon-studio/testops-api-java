@@ -446,4 +446,53 @@ public class ProjectApi {
         ParameterizedTypeReference<ProjectResource> returnType = new ParameterizedTypeReference<ProjectResource>() {};
         return apiClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
     }
+    /**
+     * Updates a Project status. Returns the updated Project detail.
+     * 
+     * <p><b>200</b> - OK
+     * @param projectResource  (required)
+     * @return ProjectResource
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ProjectResource updateStatus(ProjectResource projectResource) throws RestClientException {
+        return updateStatusWithHttpInfo(projectResource).getBody();
+    }
+
+    /**
+     * Updates a Project status. Returns the updated Project detail.
+     * 
+     * <p><b>200</b> - OK
+     * @param projectResource  (required)
+     * @return ResponseEntity&lt;ProjectResource&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<ProjectResource> updateStatusWithHttpInfo(ProjectResource projectResource) throws RestClientException {
+        Object postBody = projectResource;
+        
+        // verify the required parameter 'projectResource' is set
+        if (projectResource == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'projectResource' when calling updateStatus");
+        }
+        
+        String path = apiClient.expandPath("/api/v1/projects/update-status", Collections.<String, Object>emptyMap());
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "*/*"
+         };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] contentTypes = { 
+            "application/json"
+         };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] { "basicScheme" };
+
+        ParameterizedTypeReference<ProjectResource> returnType = new ParameterizedTypeReference<ProjectResource>() {};
+        return apiClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
+    }
 }
