@@ -60,7 +60,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Long**|  |
- **name** | **String**|  | [enum: TIMEZONE]
+ **name** | **String**|  | [enum: TIMEZONE, ASSERTION_PATTERN]
 
 ### Return type
 

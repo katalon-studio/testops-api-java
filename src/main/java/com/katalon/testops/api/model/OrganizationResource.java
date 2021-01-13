@@ -63,7 +63,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrganizationResource.JSON_PROPERTY_SAML_S_S_O,
   OrganizationResource.JSON_PROPERTY_KRE_LICENSE,
   OrganizationResource.JSON_PROPERTY_TEST_OPS_PACKAGE,
-  OrganizationResource.JSON_PROPERTY_TEST_OPS_BASIC_REASON
+  OrganizationResource.JSON_PROPERTY_MOST_RECENT_PROJECT_ACCESSED_AT
 })
 @JsonTypeName("OrganizationResource")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -242,43 +242,8 @@ public class OrganizationResource implements Serializable {
   public static final String JSON_PROPERTY_TEST_OPS_PACKAGE = "testOpsPackage";
   private TestOpsPackageEnum testOpsPackage;
 
-  /**
-   * Gets or Sets testOpsBasicReason
-   */
-  public enum TestOpsBasicReasonEnum {
-    USER("DISABLED_BY_USER"),
-    
-    ADMIN("DISABLED_BY_ADMIN");
-
-    private String value;
-
-    TestOpsBasicReasonEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TestOpsBasicReasonEnum fromValue(String value) {
-      for (TestOpsBasicReasonEnum b : TestOpsBasicReasonEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_TEST_OPS_BASIC_REASON = "testOpsBasicReason";
-  private TestOpsBasicReasonEnum testOpsBasicReason;
+  public static final String JSON_PROPERTY_MOST_RECENT_PROJECT_ACCESSED_AT = "mostRecentProjectAccessedAt";
+  private OffsetDateTime mostRecentProjectAccessedAt;
 
 
   public OrganizationResource id(Long id) {
@@ -1081,28 +1046,28 @@ public class OrganizationResource implements Serializable {
   }
 
 
-  public OrganizationResource testOpsBasicReason(TestOpsBasicReasonEnum testOpsBasicReason) {
+  public OrganizationResource mostRecentProjectAccessedAt(OffsetDateTime mostRecentProjectAccessedAt) {
     
-    this.testOpsBasicReason = testOpsBasicReason;
+    this.mostRecentProjectAccessedAt = mostRecentProjectAccessedAt;
     return this;
   }
 
    /**
-   * Get testOpsBasicReason
-   * @return testOpsBasicReason
+   * Get mostRecentProjectAccessedAt
+   * @return mostRecentProjectAccessedAt
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TEST_OPS_BASIC_REASON)
+  @JsonProperty(JSON_PROPERTY_MOST_RECENT_PROJECT_ACCESSED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TestOpsBasicReasonEnum getTestOpsBasicReason() {
-    return testOpsBasicReason;
+  public OffsetDateTime getMostRecentProjectAccessedAt() {
+    return mostRecentProjectAccessedAt;
   }
 
 
-  public void setTestOpsBasicReason(TestOpsBasicReasonEnum testOpsBasicReason) {
-    this.testOpsBasicReason = testOpsBasicReason;
+  public void setMostRecentProjectAccessedAt(OffsetDateTime mostRecentProjectAccessedAt) {
+    this.mostRecentProjectAccessedAt = mostRecentProjectAccessedAt;
   }
 
 
@@ -1147,12 +1112,12 @@ public class OrganizationResource implements Serializable {
         Objects.equals(this.samlSSO, organizationResource.samlSSO) &&
         Objects.equals(this.kreLicense, organizationResource.kreLicense) &&
         Objects.equals(this.testOpsPackage, organizationResource.testOpsPackage) &&
-        Objects.equals(this.testOpsBasicReason, organizationResource.testOpsBasicReason);
+        Objects.equals(this.mostRecentProjectAccessedAt, organizationResource.mostRecentProjectAccessedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, role, orgFeatureFlag, quotaKSE, machineQuotaKSE, quotaEngine, machineQuotaEngine, usedKSE, usedEngine, quotaTestOps, usedTestOps, numberUser, quotaFloatingEngine, usedFloatingEngine, canCreateOfflineKSE, canCreateOfflineRE, subscriptionExpiryDateEngine, subscriptionExpiryDateKSE, subscriptionExpiryDateFloatingEngine, subscriptionExpiryDateTestOps, subscribed, ksePaygo, krePaygo, paygoQuota, domain, subdomainUrl, strictDomain, logoUrl, samlSSO, kreLicense, testOpsPackage, testOpsBasicReason);
+    return Objects.hash(id, name, role, orgFeatureFlag, quotaKSE, machineQuotaKSE, quotaEngine, machineQuotaEngine, usedKSE, usedEngine, quotaTestOps, usedTestOps, numberUser, quotaFloatingEngine, usedFloatingEngine, canCreateOfflineKSE, canCreateOfflineRE, subscriptionExpiryDateEngine, subscriptionExpiryDateKSE, subscriptionExpiryDateFloatingEngine, subscriptionExpiryDateTestOps, subscribed, ksePaygo, krePaygo, paygoQuota, domain, subdomainUrl, strictDomain, logoUrl, samlSSO, kreLicense, testOpsPackage, mostRecentProjectAccessedAt);
   }
 
 
@@ -1192,7 +1157,7 @@ public class OrganizationResource implements Serializable {
     sb.append("    samlSSO: ").append(toIndentedString(samlSSO)).append("\n");
     sb.append("    kreLicense: ").append(toIndentedString(kreLicense)).append("\n");
     sb.append("    testOpsPackage: ").append(toIndentedString(testOpsPackage)).append("\n");
-    sb.append("    testOpsBasicReason: ").append(toIndentedString(testOpsBasicReason)).append("\n");
+    sb.append("    mostRecentProjectAccessedAt: ").append(toIndentedString(mostRecentProjectAccessedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

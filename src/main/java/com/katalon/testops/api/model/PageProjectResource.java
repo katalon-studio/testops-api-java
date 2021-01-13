@@ -36,12 +36,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   PageProjectResource.JSON_PROPERTY_TOTAL_ELEMENTS,
   PageProjectResource.JSON_PROPERTY_TOTAL_PAGES,
-  PageProjectResource.JSON_PROPERTY_NUMBER_OF_ELEMENTS,
-  PageProjectResource.JSON_PROPERTY_SORT,
-  PageProjectResource.JSON_PROPERTY_FIRST,
   PageProjectResource.JSON_PROPERTY_SIZE,
   PageProjectResource.JSON_PROPERTY_CONTENT,
   PageProjectResource.JSON_PROPERTY_NUMBER,
+  PageProjectResource.JSON_PROPERTY_SORT,
+  PageProjectResource.JSON_PROPERTY_NUMBER_OF_ELEMENTS,
+  PageProjectResource.JSON_PROPERTY_FIRST,
   PageProjectResource.JSON_PROPERTY_PAGEABLE,
   PageProjectResource.JSON_PROPERTY_LAST,
   PageProjectResource.JSON_PROPERTY_EMPTY
@@ -57,15 +57,6 @@ public class PageProjectResource implements Serializable {
   public static final String JSON_PROPERTY_TOTAL_PAGES = "totalPages";
   private Integer totalPages;
 
-  public static final String JSON_PROPERTY_NUMBER_OF_ELEMENTS = "numberOfElements";
-  private Integer numberOfElements;
-
-  public static final String JSON_PROPERTY_SORT = "sort";
-  private Sort sort;
-
-  public static final String JSON_PROPERTY_FIRST = "first";
-  private Boolean first;
-
   public static final String JSON_PROPERTY_SIZE = "size";
   private Integer size;
 
@@ -74,6 +65,15 @@ public class PageProjectResource implements Serializable {
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private Integer number;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private Sort sort;
+
+  public static final String JSON_PROPERTY_NUMBER_OF_ELEMENTS = "numberOfElements";
+  private Integer numberOfElements;
+
+  public static final String JSON_PROPERTY_FIRST = "first";
+  private Boolean first;
 
   public static final String JSON_PROPERTY_PAGEABLE = "pageable";
   private Pageable pageable;
@@ -132,81 +132,6 @@ public class PageProjectResource implements Serializable {
 
   public void setTotalPages(Integer totalPages) {
     this.totalPages = totalPages;
-  }
-
-
-  public PageProjectResource numberOfElements(Integer numberOfElements) {
-    
-    this.numberOfElements = numberOfElements;
-    return this;
-  }
-
-   /**
-   * Get numberOfElements
-   * @return numberOfElements
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_ELEMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getNumberOfElements() {
-    return numberOfElements;
-  }
-
-
-  public void setNumberOfElements(Integer numberOfElements) {
-    this.numberOfElements = numberOfElements;
-  }
-
-
-  public PageProjectResource sort(Sort sort) {
-    
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Sort getSort() {
-    return sort;
-  }
-
-
-  public void setSort(Sort sort) {
-    this.sort = sort;
-  }
-
-
-  public PageProjectResource first(Boolean first) {
-    
-    this.first = first;
-    return this;
-  }
-
-   /**
-   * Get first
-   * @return first
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getFirst() {
-    return first;
-  }
-
-
-  public void setFirst(Boolean first) {
-    this.first = first;
   }
 
 
@@ -290,6 +215,81 @@ public class PageProjectResource implements Serializable {
 
   public void setNumber(Integer number) {
     this.number = number;
+  }
+
+
+  public PageProjectResource sort(Sort sort) {
+    
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Sort getSort() {
+    return sort;
+  }
+
+
+  public void setSort(Sort sort) {
+    this.sort = sort;
+  }
+
+
+  public PageProjectResource numberOfElements(Integer numberOfElements) {
+    
+    this.numberOfElements = numberOfElements;
+    return this;
+  }
+
+   /**
+   * Get numberOfElements
+   * @return numberOfElements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_ELEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getNumberOfElements() {
+    return numberOfElements;
+  }
+
+
+  public void setNumberOfElements(Integer numberOfElements) {
+    this.numberOfElements = numberOfElements;
+  }
+
+
+  public PageProjectResource first(Boolean first) {
+    
+    this.first = first;
+    return this;
+  }
+
+   /**
+   * Get first
+   * @return first
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FIRST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFirst() {
+    return first;
+  }
+
+
+  public void setFirst(Boolean first) {
+    this.first = first;
   }
 
 
@@ -379,12 +379,12 @@ public class PageProjectResource implements Serializable {
     PageProjectResource pageProjectResource = (PageProjectResource) o;
     return Objects.equals(this.totalElements, pageProjectResource.totalElements) &&
         Objects.equals(this.totalPages, pageProjectResource.totalPages) &&
-        Objects.equals(this.numberOfElements, pageProjectResource.numberOfElements) &&
-        Objects.equals(this.sort, pageProjectResource.sort) &&
-        Objects.equals(this.first, pageProjectResource.first) &&
         Objects.equals(this.size, pageProjectResource.size) &&
         Objects.equals(this.content, pageProjectResource.content) &&
         Objects.equals(this.number, pageProjectResource.number) &&
+        Objects.equals(this.sort, pageProjectResource.sort) &&
+        Objects.equals(this.numberOfElements, pageProjectResource.numberOfElements) &&
+        Objects.equals(this.first, pageProjectResource.first) &&
         Objects.equals(this.pageable, pageProjectResource.pageable) &&
         Objects.equals(this.last, pageProjectResource.last) &&
         Objects.equals(this.empty, pageProjectResource.empty);
@@ -392,7 +392,7 @@ public class PageProjectResource implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalElements, totalPages, numberOfElements, sort, first, size, content, number, pageable, last, empty);
+    return Objects.hash(totalElements, totalPages, size, content, number, sort, numberOfElements, first, pageable, last, empty);
   }
 
 
@@ -402,12 +402,12 @@ public class PageProjectResource implements Serializable {
     sb.append("class PageProjectResource {\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
-    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    pageable: ").append(toIndentedString(pageable)).append("\n");
     sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");

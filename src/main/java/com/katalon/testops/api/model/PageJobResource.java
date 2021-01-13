@@ -36,12 +36,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   PageJobResource.JSON_PROPERTY_TOTAL_ELEMENTS,
   PageJobResource.JSON_PROPERTY_TOTAL_PAGES,
-  PageJobResource.JSON_PROPERTY_NUMBER_OF_ELEMENTS,
-  PageJobResource.JSON_PROPERTY_SORT,
-  PageJobResource.JSON_PROPERTY_FIRST,
   PageJobResource.JSON_PROPERTY_SIZE,
   PageJobResource.JSON_PROPERTY_CONTENT,
   PageJobResource.JSON_PROPERTY_NUMBER,
+  PageJobResource.JSON_PROPERTY_SORT,
+  PageJobResource.JSON_PROPERTY_NUMBER_OF_ELEMENTS,
+  PageJobResource.JSON_PROPERTY_FIRST,
   PageJobResource.JSON_PROPERTY_PAGEABLE,
   PageJobResource.JSON_PROPERTY_LAST,
   PageJobResource.JSON_PROPERTY_EMPTY
@@ -57,15 +57,6 @@ public class PageJobResource implements Serializable {
   public static final String JSON_PROPERTY_TOTAL_PAGES = "totalPages";
   private Integer totalPages;
 
-  public static final String JSON_PROPERTY_NUMBER_OF_ELEMENTS = "numberOfElements";
-  private Integer numberOfElements;
-
-  public static final String JSON_PROPERTY_SORT = "sort";
-  private Sort sort;
-
-  public static final String JSON_PROPERTY_FIRST = "first";
-  private Boolean first;
-
   public static final String JSON_PROPERTY_SIZE = "size";
   private Integer size;
 
@@ -74,6 +65,15 @@ public class PageJobResource implements Serializable {
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private Integer number;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private Sort sort;
+
+  public static final String JSON_PROPERTY_NUMBER_OF_ELEMENTS = "numberOfElements";
+  private Integer numberOfElements;
+
+  public static final String JSON_PROPERTY_FIRST = "first";
+  private Boolean first;
 
   public static final String JSON_PROPERTY_PAGEABLE = "pageable";
   private Pageable pageable;
@@ -132,81 +132,6 @@ public class PageJobResource implements Serializable {
 
   public void setTotalPages(Integer totalPages) {
     this.totalPages = totalPages;
-  }
-
-
-  public PageJobResource numberOfElements(Integer numberOfElements) {
-    
-    this.numberOfElements = numberOfElements;
-    return this;
-  }
-
-   /**
-   * Get numberOfElements
-   * @return numberOfElements
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_ELEMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getNumberOfElements() {
-    return numberOfElements;
-  }
-
-
-  public void setNumberOfElements(Integer numberOfElements) {
-    this.numberOfElements = numberOfElements;
-  }
-
-
-  public PageJobResource sort(Sort sort) {
-    
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Sort getSort() {
-    return sort;
-  }
-
-
-  public void setSort(Sort sort) {
-    this.sort = sort;
-  }
-
-
-  public PageJobResource first(Boolean first) {
-    
-    this.first = first;
-    return this;
-  }
-
-   /**
-   * Get first
-   * @return first
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getFirst() {
-    return first;
-  }
-
-
-  public void setFirst(Boolean first) {
-    this.first = first;
   }
 
 
@@ -290,6 +215,81 @@ public class PageJobResource implements Serializable {
 
   public void setNumber(Integer number) {
     this.number = number;
+  }
+
+
+  public PageJobResource sort(Sort sort) {
+    
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Sort getSort() {
+    return sort;
+  }
+
+
+  public void setSort(Sort sort) {
+    this.sort = sort;
+  }
+
+
+  public PageJobResource numberOfElements(Integer numberOfElements) {
+    
+    this.numberOfElements = numberOfElements;
+    return this;
+  }
+
+   /**
+   * Get numberOfElements
+   * @return numberOfElements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_ELEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getNumberOfElements() {
+    return numberOfElements;
+  }
+
+
+  public void setNumberOfElements(Integer numberOfElements) {
+    this.numberOfElements = numberOfElements;
+  }
+
+
+  public PageJobResource first(Boolean first) {
+    
+    this.first = first;
+    return this;
+  }
+
+   /**
+   * Get first
+   * @return first
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FIRST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFirst() {
+    return first;
+  }
+
+
+  public void setFirst(Boolean first) {
+    this.first = first;
   }
 
 
@@ -379,12 +379,12 @@ public class PageJobResource implements Serializable {
     PageJobResource pageJobResource = (PageJobResource) o;
     return Objects.equals(this.totalElements, pageJobResource.totalElements) &&
         Objects.equals(this.totalPages, pageJobResource.totalPages) &&
-        Objects.equals(this.numberOfElements, pageJobResource.numberOfElements) &&
-        Objects.equals(this.sort, pageJobResource.sort) &&
-        Objects.equals(this.first, pageJobResource.first) &&
         Objects.equals(this.size, pageJobResource.size) &&
         Objects.equals(this.content, pageJobResource.content) &&
         Objects.equals(this.number, pageJobResource.number) &&
+        Objects.equals(this.sort, pageJobResource.sort) &&
+        Objects.equals(this.numberOfElements, pageJobResource.numberOfElements) &&
+        Objects.equals(this.first, pageJobResource.first) &&
         Objects.equals(this.pageable, pageJobResource.pageable) &&
         Objects.equals(this.last, pageJobResource.last) &&
         Objects.equals(this.empty, pageJobResource.empty);
@@ -392,7 +392,7 @@ public class PageJobResource implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalElements, totalPages, numberOfElements, sort, first, size, content, number, pageable, last, empty);
+    return Objects.hash(totalElements, totalPages, size, content, number, sort, numberOfElements, first, pageable, last, empty);
   }
 
 
@@ -402,12 +402,12 @@ public class PageJobResource implements Serializable {
     sb.append("class PageJobResource {\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
-    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
+    sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    pageable: ").append(toIndentedString(pageable)).append("\n");
     sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");

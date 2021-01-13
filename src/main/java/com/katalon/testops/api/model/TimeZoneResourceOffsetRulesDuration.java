@@ -34,9 +34,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_SECONDS,
   TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_NANO,
+  TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_UNITS,
   TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_ZERO,
-  TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_NEGATIVE,
-  TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_UNITS
+  TimeZoneResourceOffsetRulesDuration.JSON_PROPERTY_NEGATIVE
 })
 @JsonTypeName("TimeZoneResource_offset_rules_duration")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -49,14 +49,14 @@ public class TimeZoneResourceOffsetRulesDuration implements Serializable {
   public static final String JSON_PROPERTY_NANO = "nano";
   private Integer nano;
 
+  public static final String JSON_PROPERTY_UNITS = "units";
+  private List<TimeZoneResourceOffsetRulesDurationUnits> units = null;
+
   public static final String JSON_PROPERTY_ZERO = "zero";
   private Boolean zero;
 
   public static final String JSON_PROPERTY_NEGATIVE = "negative";
   private Boolean negative;
-
-  public static final String JSON_PROPERTY_UNITS = "units";
-  private List<TimeZoneResourceOffsetRulesDurationUnits> units = null;
 
 
   public TimeZoneResourceOffsetRulesDuration seconds(Long seconds) {
@@ -106,6 +106,39 @@ public class TimeZoneResourceOffsetRulesDuration implements Serializable {
 
   public void setNano(Integer nano) {
     this.nano = nano;
+  }
+
+
+  public TimeZoneResourceOffsetRulesDuration units(List<TimeZoneResourceOffsetRulesDurationUnits> units) {
+    
+    this.units = units;
+    return this;
+  }
+
+  public TimeZoneResourceOffsetRulesDuration addUnitsItem(TimeZoneResourceOffsetRulesDurationUnits unitsItem) {
+    if (this.units == null) {
+      this.units = new ArrayList<>();
+    }
+    this.units.add(unitsItem);
+    return this;
+  }
+
+   /**
+   * Get units
+   * @return units
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UNITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TimeZoneResourceOffsetRulesDurationUnits> getUnits() {
+    return units;
+  }
+
+
+  public void setUnits(List<TimeZoneResourceOffsetRulesDurationUnits> units) {
+    this.units = units;
   }
 
 
@@ -159,39 +192,6 @@ public class TimeZoneResourceOffsetRulesDuration implements Serializable {
   }
 
 
-  public TimeZoneResourceOffsetRulesDuration units(List<TimeZoneResourceOffsetRulesDurationUnits> units) {
-    
-    this.units = units;
-    return this;
-  }
-
-  public TimeZoneResourceOffsetRulesDuration addUnitsItem(TimeZoneResourceOffsetRulesDurationUnits unitsItem) {
-    if (this.units == null) {
-      this.units = new ArrayList<>();
-    }
-    this.units.add(unitsItem);
-    return this;
-  }
-
-   /**
-   * Get units
-   * @return units
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_UNITS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TimeZoneResourceOffsetRulesDurationUnits> getUnits() {
-    return units;
-  }
-
-
-  public void setUnits(List<TimeZoneResourceOffsetRulesDurationUnits> units) {
-    this.units = units;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,14 +203,14 @@ public class TimeZoneResourceOffsetRulesDuration implements Serializable {
     TimeZoneResourceOffsetRulesDuration timeZoneResourceOffsetRulesDuration = (TimeZoneResourceOffsetRulesDuration) o;
     return Objects.equals(this.seconds, timeZoneResourceOffsetRulesDuration.seconds) &&
         Objects.equals(this.nano, timeZoneResourceOffsetRulesDuration.nano) &&
+        Objects.equals(this.units, timeZoneResourceOffsetRulesDuration.units) &&
         Objects.equals(this.zero, timeZoneResourceOffsetRulesDuration.zero) &&
-        Objects.equals(this.negative, timeZoneResourceOffsetRulesDuration.negative) &&
-        Objects.equals(this.units, timeZoneResourceOffsetRulesDuration.units);
+        Objects.equals(this.negative, timeZoneResourceOffsetRulesDuration.negative);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(seconds, nano, zero, negative, units);
+    return Objects.hash(seconds, nano, units, zero, negative);
   }
 
 
@@ -220,9 +220,9 @@ public class TimeZoneResourceOffsetRulesDuration implements Serializable {
     sb.append("class TimeZoneResourceOffsetRulesDuration {\n");
     sb.append("    seconds: ").append(toIndentedString(seconds)).append("\n");
     sb.append("    nano: ").append(toIndentedString(nano)).append("\n");
+    sb.append("    units: ").append(toIndentedString(units)).append("\n");
     sb.append("    zero: ").append(toIndentedString(zero)).append("\n");
     sb.append("    negative: ").append(toIndentedString(negative)).append("\n");
-    sb.append("    units: ").append(toIndentedString(units)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -25,6 +25,7 @@ import com.katalon.testops.api.model.ExecutionTestResultResource;
 import com.katalon.testops.api.model.ExternalIssueResource;
 import com.katalon.testops.api.model.ProjectResource;
 import com.katalon.testops.api.model.TestCasePlatformStatisticsResource;
+import com.katalon.testops.api.model.TestResultAssertionResource;
 import com.katalon.testops.api.model.UserResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -58,6 +59,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TestCaseResource.JSON_PROPERTY_FLAKINESS,
   TestCaseResource.JSON_PROPERTY_PLATFORM_STATISTICS,
   TestCaseResource.JSON_PROPERTY_MAINTAINER,
+  TestCaseResource.JSON_PROPERTY_TEST_RESULT_ASSERTION,
   TestCaseResource.JSON_PROPERTY_URL_ID
 })
 @JsonTypeName("TestCaseResource")
@@ -201,6 +203,9 @@ public class TestCaseResource implements Serializable {
 
   public static final String JSON_PROPERTY_MAINTAINER = "maintainer";
   private UserResource maintainer;
+
+  public static final String JSON_PROPERTY_TEST_RESULT_ASSERTION = "testResultAssertion";
+  private TestResultAssertionResource testResultAssertion;
 
   public static final String JSON_PROPERTY_URL_ID = "urlId";
   private String urlId;
@@ -705,6 +710,31 @@ public class TestCaseResource implements Serializable {
   }
 
 
+  public TestCaseResource testResultAssertion(TestResultAssertionResource testResultAssertion) {
+    
+    this.testResultAssertion = testResultAssertion;
+    return this;
+  }
+
+   /**
+   * Get testResultAssertion
+   * @return testResultAssertion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TEST_RESULT_ASSERTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TestResultAssertionResource getTestResultAssertion() {
+    return testResultAssertion;
+  }
+
+
+  public void setTestResultAssertion(TestResultAssertionResource testResultAssertion) {
+    this.testResultAssertion = testResultAssertion;
+  }
+
+
   public TestCaseResource urlId(String urlId) {
     
     this.urlId = urlId;
@@ -758,12 +788,13 @@ public class TestCaseResource implements Serializable {
         Objects.equals(this.flakiness, testCaseResource.flakiness) &&
         Objects.equals(this.platformStatistics, testCaseResource.platformStatistics) &&
         Objects.equals(this.maintainer, testCaseResource.maintainer) &&
+        Objects.equals(this.testResultAssertion, testCaseResource.testResultAssertion) &&
         Objects.equals(this.urlId, testCaseResource.urlId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, path, previousStatus, alias, testModuleId, webUrl, description, project, lastExecutionTestCase, externalIssues, type, averageDuration, maxDuration, minDuration, executionTestResults, flakiness, platformStatistics, maintainer, urlId);
+    return Objects.hash(id, name, path, previousStatus, alias, testModuleId, webUrl, description, project, lastExecutionTestCase, externalIssues, type, averageDuration, maxDuration, minDuration, executionTestResults, flakiness, platformStatistics, maintainer, testResultAssertion, urlId);
   }
 
 
@@ -790,6 +821,7 @@ public class TestCaseResource implements Serializable {
     sb.append("    flakiness: ").append(toIndentedString(flakiness)).append("\n");
     sb.append("    platformStatistics: ").append(toIndentedString(platformStatistics)).append("\n");
     sb.append("    maintainer: ").append(toIndentedString(maintainer)).append("\n");
+    sb.append("    testResultAssertion: ").append(toIndentedString(testResultAssertion)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("}");
     return sb.toString();

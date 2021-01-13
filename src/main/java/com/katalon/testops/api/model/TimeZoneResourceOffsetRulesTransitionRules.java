@@ -32,10 +32,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_MONTH,
   TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_TIME_DEFINITION,
-  TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_LOCAL_TIME,
   TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_DAY_OF_WEEK,
   TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_DAY_OF_MONTH_INDICATOR,
-  TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_MIDNIGHT_END_OF_DAY
+  TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_MIDNIGHT_END_OF_DAY,
+  TimeZoneResourceOffsetRulesTransitionRules.JSON_PROPERTY_LOCAL_TIME
 })
 @JsonTypeName("TimeZoneResource_offset_rules_transitionRules")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -140,9 +140,6 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   public static final String JSON_PROPERTY_TIME_DEFINITION = "timeDefinition";
   private TimeDefinitionEnum timeDefinition;
 
-  public static final String JSON_PROPERTY_LOCAL_TIME = "localTime";
-  private LocalDateTime localTime;
-
   /**
    * Gets or Sets dayOfWeek
    */
@@ -197,6 +194,9 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   public static final String JSON_PROPERTY_MIDNIGHT_END_OF_DAY = "midnightEndOfDay";
   private Boolean midnightEndOfDay;
 
+  public static final String JSON_PROPERTY_LOCAL_TIME = "localTime";
+  private LocalDateTime localTime;
+
 
   public TimeZoneResourceOffsetRulesTransitionRules month(MonthEnum month) {
     
@@ -245,31 +245,6 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
 
   public void setTimeDefinition(TimeDefinitionEnum timeDefinition) {
     this.timeDefinition = timeDefinition;
-  }
-
-
-  public TimeZoneResourceOffsetRulesTransitionRules localTime(LocalDateTime localTime) {
-    
-    this.localTime = localTime;
-    return this;
-  }
-
-   /**
-   * Get localTime
-   * @return localTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LOCAL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public LocalDateTime getLocalTime() {
-    return localTime;
-  }
-
-
-  public void setLocalTime(LocalDateTime localTime) {
-    this.localTime = localTime;
   }
 
 
@@ -348,6 +323,31 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   }
 
 
+  public TimeZoneResourceOffsetRulesTransitionRules localTime(LocalDateTime localTime) {
+    
+    this.localTime = localTime;
+    return this;
+  }
+
+   /**
+   * Get localTime
+   * @return localTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOCAL_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDateTime getLocalTime() {
+    return localTime;
+  }
+
+
+  public void setLocalTime(LocalDateTime localTime) {
+    this.localTime = localTime;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -359,15 +359,15 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
     TimeZoneResourceOffsetRulesTransitionRules timeZoneResourceOffsetRulesTransitionRules = (TimeZoneResourceOffsetRulesTransitionRules) o;
     return Objects.equals(this.month, timeZoneResourceOffsetRulesTransitionRules.month) &&
         Objects.equals(this.timeDefinition, timeZoneResourceOffsetRulesTransitionRules.timeDefinition) &&
-        Objects.equals(this.localTime, timeZoneResourceOffsetRulesTransitionRules.localTime) &&
         Objects.equals(this.dayOfWeek, timeZoneResourceOffsetRulesTransitionRules.dayOfWeek) &&
         Objects.equals(this.dayOfMonthIndicator, timeZoneResourceOffsetRulesTransitionRules.dayOfMonthIndicator) &&
-        Objects.equals(this.midnightEndOfDay, timeZoneResourceOffsetRulesTransitionRules.midnightEndOfDay);
+        Objects.equals(this.midnightEndOfDay, timeZoneResourceOffsetRulesTransitionRules.midnightEndOfDay) &&
+        Objects.equals(this.localTime, timeZoneResourceOffsetRulesTransitionRules.localTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, timeDefinition, localTime, dayOfWeek, dayOfMonthIndicator, midnightEndOfDay);
+    return Objects.hash(month, timeDefinition, dayOfWeek, dayOfMonthIndicator, midnightEndOfDay, localTime);
   }
 
 
@@ -377,10 +377,10 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
     sb.append("class TimeZoneResourceOffsetRulesTransitionRules {\n");
     sb.append("    month: ").append(toIndentedString(month)).append("\n");
     sb.append("    timeDefinition: ").append(toIndentedString(timeDefinition)).append("\n");
-    sb.append("    localTime: ").append(toIndentedString(localTime)).append("\n");
     sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
     sb.append("    dayOfMonthIndicator: ").append(toIndentedString(dayOfMonthIndicator)).append("\n");
     sb.append("    midnightEndOfDay: ").append(toIndentedString(midnightEndOfDay)).append("\n");
+    sb.append("    localTime: ").append(toIndentedString(localTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

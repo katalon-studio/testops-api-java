@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **samlSSO** | **Boolean** |  |  [optional]
 **kreLicense** | **Boolean** |  |  [optional]
 **testOpsPackage** | [**TestOpsPackageEnum**](#TestOpsPackageEnum) |  |  [optional]
-**testOpsBasicReason** | [**TestOpsBasicReasonEnum**](#TestOpsBasicReasonEnum) |  |  [optional]
+**mostRecentProjectAccessedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 
 
 
@@ -60,15 +60,6 @@ Name | Value
 BASIC | &quot;BASIC&quot;
 ADVANCED | &quot;ADVANCED&quot;
 ENTERPRISE | &quot;ENTERPRISE&quot;
-
-
-
-## Enum: TestOpsBasicReasonEnum
-
-Name | Value
----- | -----
-USER | &quot;DISABLED_BY_USER&quot;
-ADMIN | &quot;DISABLED_BY_ADMIN&quot;
 
 
 ## Implemented Interfaces

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **projectId** | **Long** |  |  [optional]
 **teamId** | **Long** |  |  [optional]
 **testProjectId** | **Long** |  |  [optional]
+**releaseId** | **Long** |  |  [optional]
 **testSuiteCollectionId** | **Long** |  |  [optional]
 **timeOut** | **Long** |  |  [optional]
 **configType** | [**ConfigTypeEnum**](#ConfigTypeEnum) |  |  [optional]

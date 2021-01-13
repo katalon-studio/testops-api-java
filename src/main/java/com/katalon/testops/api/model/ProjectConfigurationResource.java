@@ -41,7 +41,9 @@ public class ProjectConfigurationResource implements Serializable {
    * Gets or Sets name
    */
   public enum NameEnum {
-    TIMEZONE("TIMEZONE");
+    TIMEZONE("TIMEZONE"),
+    
+    ASSERTION_PATTERN("ASSERTION_PATTERN");
 
     private String value;
 

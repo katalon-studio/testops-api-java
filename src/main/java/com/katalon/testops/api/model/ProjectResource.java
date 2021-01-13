@@ -34,7 +34,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ProjectResource.JSON_PROPERTY_NAME,
   ProjectResource.JSON_PROPERTY_TEAM_ID,
   ProjectResource.JSON_PROPERTY_TEAM,
-  ProjectResource.JSON_PROPERTY_TIMEZONE
+  ProjectResource.JSON_PROPERTY_TIMEZONE,
+  ProjectResource.JSON_PROPERTY_STATUS
 })
 @JsonTypeName("ProjectResource")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -55,6 +56,44 @@ public class ProjectResource implements Serializable {
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
+
+  /**
+   * Gets or Sets status
+   */
+  public enum StatusEnum {
+    ARCHIVE("ARCHIVE"),
+    
+    ACTIVE("ACTIVE");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private StatusEnum status;
 
 
   public ProjectResource id(Long id) {
@@ -182,6 +221,31 @@ public class ProjectResource implements Serializable {
   }
 
 
+  public ProjectResource status(StatusEnum status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -195,12 +259,13 @@ public class ProjectResource implements Serializable {
         Objects.equals(this.name, projectResource.name) &&
         Objects.equals(this.teamId, projectResource.teamId) &&
         Objects.equals(this.team, projectResource.team) &&
-        Objects.equals(this.timezone, projectResource.timezone);
+        Objects.equals(this.timezone, projectResource.timezone) &&
+        Objects.equals(this.status, projectResource.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, teamId, team, timezone);
+    return Objects.hash(id, name, teamId, team, timezone, status);
   }
 
 
@@ -213,6 +278,7 @@ public class ProjectResource implements Serializable {
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

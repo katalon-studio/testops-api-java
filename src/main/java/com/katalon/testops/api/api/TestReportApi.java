@@ -212,10 +212,11 @@ public class TestReportApi {
      * @param projectId  (required)
      * @param batch  (required)
      * @param uploadBatchFileResource  (required)
+     * @return UploadBatchResource
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public void processTestOpsReports(Long projectId, String batch, List<UploadBatchFileResource> uploadBatchFileResource) throws RestClientException {
-        processTestOpsReportsWithHttpInfo(projectId, batch, uploadBatchFileResource);
+    public UploadBatchResource processTestOpsReports(Long projectId, String batch, List<UploadBatchFileResource> uploadBatchFileResource) throws RestClientException {
+        return processTestOpsReportsWithHttpInfo(projectId, batch, uploadBatchFileResource).getBody();
     }
 
     /**
@@ -225,10 +226,10 @@ public class TestReportApi {
      * @param projectId  (required)
      * @param batch  (required)
      * @param uploadBatchFileResource  (required)
-     * @return ResponseEntity&lt;Void&gt;
+     * @return ResponseEntity&lt;UploadBatchResource&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> processTestOpsReportsWithHttpInfo(Long projectId, String batch, List<UploadBatchFileResource> uploadBatchFileResource) throws RestClientException {
+    public ResponseEntity<UploadBatchResource> processTestOpsReportsWithHttpInfo(Long projectId, String batch, List<UploadBatchFileResource> uploadBatchFileResource) throws RestClientException {
         Object postBody = uploadBatchFileResource;
         
         // verify the required parameter 'projectId' is set
@@ -256,7 +257,9 @@ public class TestReportApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "projectId", projectId));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "batch", batch));
 
-        final String[] localVarAccepts = {  };
+        final String[] localVarAccepts = { 
+            "*/*"
+         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] contentTypes = { 
             "application/json"
@@ -265,7 +268,7 @@ public class TestReportApi {
 
         String[] authNames = new String[] { "basicScheme" };
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
+        ParameterizedTypeReference<UploadBatchResource> returnType = new ParameterizedTypeReference<UploadBatchResource>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, contentType, authNames, returnType);
     }
     /**

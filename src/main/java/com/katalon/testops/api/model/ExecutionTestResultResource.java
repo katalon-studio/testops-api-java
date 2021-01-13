@@ -28,6 +28,7 @@ import com.katalon.testops.api.model.FileResource;
 import com.katalon.testops.api.model.IncidentResource;
 import com.katalon.testops.api.model.PlatformResource;
 import com.katalon.testops.api.model.TestCaseResource;
+import com.katalon.testops.api.model.TestResultAssertionFailedResource;
 import com.katalon.testops.api.model.TestSuiteResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,6 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ExecutionTestResultResource.JSON_PROPERTY_DESCRIPTION_ID,
   ExecutionTestResultResource.JSON_PROPERTY_LOG_ID,
   ExecutionTestResultResource.JSON_PROPERTY_ATTACHMENTS,
+  ExecutionTestResultResource.JSON_PROPERTY_TEST_RESULT_ASSERTIONS_FAILED,
   ExecutionTestResultResource.JSON_PROPERTY_START_TIME,
   ExecutionTestResultResource.JSON_PROPERTY_END_TIME,
   ExecutionTestResultResource.JSON_PROPERTY_DURATION,
@@ -68,6 +70,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ExecutionTestResultResource.JSON_PROPERTY_FAILED_TEST_RESULT_CATEGORY,
   ExecutionTestResultResource.JSON_PROPERTY_TOTAL_TEST_OBJECT,
   ExecutionTestResultResource.JSON_PROPERTY_TOTAL_DEFECTS,
+  ExecutionTestResultResource.JSON_PROPERTY_TOTAL_ASSERTION,
+  ExecutionTestResultResource.JSON_PROPERTY_PASSED_ASSERTION,
+  ExecutionTestResultResource.JSON_PROPERTY_FAILED_ASSERTION,
   ExecutionTestResultResource.JSON_PROPERTY_URL_ID
 })
 @JsonTypeName("ExecutionTestResultResource")
@@ -152,6 +157,9 @@ public class ExecutionTestResultResource implements Serializable {
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<FileResource> attachments = null;
+
+  public static final String JSON_PROPERTY_TEST_RESULT_ASSERTIONS_FAILED = "testResultAssertionsFailed";
+  private List<TestResultAssertionFailedResource> testResultAssertionsFailed = null;
 
   public static final String JSON_PROPERTY_START_TIME = "startTime";
   private OffsetDateTime startTime;
@@ -239,6 +247,15 @@ public class ExecutionTestResultResource implements Serializable {
 
   public static final String JSON_PROPERTY_TOTAL_DEFECTS = "totalDefects";
   private Integer totalDefects;
+
+  public static final String JSON_PROPERTY_TOTAL_ASSERTION = "totalAssertion";
+  private Long totalAssertion;
+
+  public static final String JSON_PROPERTY_PASSED_ASSERTION = "passedAssertion";
+  private Long passedAssertion;
+
+  public static final String JSON_PROPERTY_FAILED_ASSERTION = "failedAssertion";
+  private Long failedAssertion;
 
   public static final String JSON_PROPERTY_URL_ID = "urlId";
   private String urlId;
@@ -524,6 +541,39 @@ public class ExecutionTestResultResource implements Serializable {
 
   public void setAttachments(List<FileResource> attachments) {
     this.attachments = attachments;
+  }
+
+
+  public ExecutionTestResultResource testResultAssertionsFailed(List<TestResultAssertionFailedResource> testResultAssertionsFailed) {
+    
+    this.testResultAssertionsFailed = testResultAssertionsFailed;
+    return this;
+  }
+
+  public ExecutionTestResultResource addTestResultAssertionsFailedItem(TestResultAssertionFailedResource testResultAssertionsFailedItem) {
+    if (this.testResultAssertionsFailed == null) {
+      this.testResultAssertionsFailed = new ArrayList<>();
+    }
+    this.testResultAssertionsFailed.add(testResultAssertionsFailedItem);
+    return this;
+  }
+
+   /**
+   * Get testResultAssertionsFailed
+   * @return testResultAssertionsFailed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TEST_RESULT_ASSERTIONS_FAILED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TestResultAssertionFailedResource> getTestResultAssertionsFailed() {
+    return testResultAssertionsFailed;
+  }
+
+
+  public void setTestResultAssertionsFailed(List<TestResultAssertionFailedResource> testResultAssertionsFailed) {
+    this.testResultAssertionsFailed = testResultAssertionsFailed;
   }
 
 
@@ -951,6 +1001,81 @@ public class ExecutionTestResultResource implements Serializable {
   }
 
 
+  public ExecutionTestResultResource totalAssertion(Long totalAssertion) {
+    
+    this.totalAssertion = totalAssertion;
+    return this;
+  }
+
+   /**
+   * Get totalAssertion
+   * @return totalAssertion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOTAL_ASSERTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTotalAssertion() {
+    return totalAssertion;
+  }
+
+
+  public void setTotalAssertion(Long totalAssertion) {
+    this.totalAssertion = totalAssertion;
+  }
+
+
+  public ExecutionTestResultResource passedAssertion(Long passedAssertion) {
+    
+    this.passedAssertion = passedAssertion;
+    return this;
+  }
+
+   /**
+   * Get passedAssertion
+   * @return passedAssertion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PASSED_ASSERTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getPassedAssertion() {
+    return passedAssertion;
+  }
+
+
+  public void setPassedAssertion(Long passedAssertion) {
+    this.passedAssertion = passedAssertion;
+  }
+
+
+  public ExecutionTestResultResource failedAssertion(Long failedAssertion) {
+    
+    this.failedAssertion = failedAssertion;
+    return this;
+  }
+
+   /**
+   * Get failedAssertion
+   * @return failedAssertion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FAILED_ASSERTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getFailedAssertion() {
+    return failedAssertion;
+  }
+
+
+  public void setFailedAssertion(Long failedAssertion) {
+    this.failedAssertion = failedAssertion;
+  }
+
+
   public ExecutionTestResultResource urlId(String urlId) {
     
     this.urlId = urlId;
@@ -996,6 +1121,7 @@ public class ExecutionTestResultResource implements Serializable {
         Objects.equals(this.descriptionId, executionTestResultResource.descriptionId) &&
         Objects.equals(this.logId, executionTestResultResource.logId) &&
         Objects.equals(this.attachments, executionTestResultResource.attachments) &&
+        Objects.equals(this.testResultAssertionsFailed, executionTestResultResource.testResultAssertionsFailed) &&
         Objects.equals(this.startTime, executionTestResultResource.startTime) &&
         Objects.equals(this.endTime, executionTestResultResource.endTime) &&
         Objects.equals(this.duration, executionTestResultResource.duration) &&
@@ -1012,12 +1138,15 @@ public class ExecutionTestResultResource implements Serializable {
         Objects.equals(this.failedTestResultCategory, executionTestResultResource.failedTestResultCategory) &&
         Objects.equals(this.totalTestObject, executionTestResultResource.totalTestObject) &&
         Objects.equals(this.totalDefects, executionTestResultResource.totalDefects) &&
+        Objects.equals(this.totalAssertion, executionTestResultResource.totalAssertion) &&
+        Objects.equals(this.passedAssertion, executionTestResultResource.passedAssertion) &&
+        Objects.equals(this.failedAssertion, executionTestResultResource.failedAssertion) &&
         Objects.equals(this.urlId, executionTestResultResource.urlId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, testCase, execution, platform, status, sameStatusPeriod, errorDetailsId, stdoutId, descriptionId, logId, attachments, startTime, endTime, duration, sameFailureResults, testSuite, executionTestSuite, incidents, profile, hasComment, errorMessage, errorDetail, webUrl, externalIssues, failedTestResultCategory, totalTestObject, totalDefects, urlId);
+    return Objects.hash(id, testCase, execution, platform, status, sameStatusPeriod, errorDetailsId, stdoutId, descriptionId, logId, attachments, testResultAssertionsFailed, startTime, endTime, duration, sameFailureResults, testSuite, executionTestSuite, incidents, profile, hasComment, errorMessage, errorDetail, webUrl, externalIssues, failedTestResultCategory, totalTestObject, totalDefects, totalAssertion, passedAssertion, failedAssertion, urlId);
   }
 
 
@@ -1036,6 +1165,7 @@ public class ExecutionTestResultResource implements Serializable {
     sb.append("    descriptionId: ").append(toIndentedString(descriptionId)).append("\n");
     sb.append("    logId: ").append(toIndentedString(logId)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    testResultAssertionsFailed: ").append(toIndentedString(testResultAssertionsFailed)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
@@ -1052,6 +1182,9 @@ public class ExecutionTestResultResource implements Serializable {
     sb.append("    failedTestResultCategory: ").append(toIndentedString(failedTestResultCategory)).append("\n");
     sb.append("    totalTestObject: ").append(toIndentedString(totalTestObject)).append("\n");
     sb.append("    totalDefects: ").append(toIndentedString(totalDefects)).append("\n");
+    sb.append("    totalAssertion: ").append(toIndentedString(totalAssertion)).append("\n");
+    sb.append("    passedAssertion: ").append(toIndentedString(passedAssertion)).append("\n");
+    sb.append("    failedAssertion: ").append(toIndentedString(failedAssertion)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -61,7 +61,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JobResource.JSON_PROPERTY_SCHEDULER,
   JobResource.JSON_PROPERTY_PROJECT,
   JobResource.JSON_PROPERTY_PROCESS_ID,
-  JobResource.JSON_PROPERTY_NODE_STATUS
+  JobResource.JSON_PROPERTY_NODE_STATUS,
+  JobResource.JSON_PROPERTY_RUN_CONFIGURATION_ID
 })
 @JsonTypeName("JobResource")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -248,6 +249,9 @@ public class JobResource implements Serializable {
 
   public static final String JSON_PROPERTY_NODE_STATUS = "nodeStatus";
   private NodeStatusEnum nodeStatus;
+
+  public static final String JSON_PROPERTY_RUN_CONFIGURATION_ID = "runConfigurationId";
+  private Long runConfigurationId;
 
 
   public JobResource id(Long id) {
@@ -800,6 +804,31 @@ public class JobResource implements Serializable {
   }
 
 
+  public JobResource runConfigurationId(Long runConfigurationId) {
+    
+    this.runConfigurationId = runConfigurationId;
+    return this;
+  }
+
+   /**
+   * Get runConfigurationId
+   * @return runConfigurationId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RUN_CONFIGURATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRunConfigurationId() {
+    return runConfigurationId;
+  }
+
+
+  public void setRunConfigurationId(Long runConfigurationId) {
+    this.runConfigurationId = runConfigurationId;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -830,12 +859,13 @@ public class JobResource implements Serializable {
         Objects.equals(this.scheduler, jobResource.scheduler) &&
         Objects.equals(this.project, jobResource.project) &&
         Objects.equals(this.processId, jobResource.processId) &&
-        Objects.equals(this.nodeStatus, jobResource.nodeStatus);
+        Objects.equals(this.nodeStatus, jobResource.nodeStatus) &&
+        Objects.equals(this.runConfigurationId, jobResource.runConfigurationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, buildNumber, status, queuedAt, startTime, stopTime, testProject, execution, agent, k8sAgent, circleCiAgent, runConfiguration, order, parameter, triggerBy, duration, triggerAt, user, scheduler, project, processId, nodeStatus);
+    return Objects.hash(id, buildNumber, status, queuedAt, startTime, stopTime, testProject, execution, agent, k8sAgent, circleCiAgent, runConfiguration, order, parameter, triggerBy, duration, triggerAt, user, scheduler, project, processId, nodeStatus, runConfigurationId);
   }
 
 
@@ -865,6 +895,7 @@ public class JobResource implements Serializable {
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    processId: ").append(toIndentedString(processId)).append("\n");
     sb.append("    nodeStatus: ").append(toIndentedString(nodeStatus)).append("\n");
+    sb.append("    runConfigurationId: ").append(toIndentedString(runConfigurationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

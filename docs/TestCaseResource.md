@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **flakiness** | **Double** |  |  [optional]
 **platformStatistics** | [**Map&lt;String, TestCasePlatformStatisticsResource&gt;**](TestCasePlatformStatisticsResource.md) |  |  [optional]
 **maintainer** | [**UserResource**](UserResource.md) |  |  [optional]
+**testResultAssertion** | [**TestResultAssertionResource**](TestResultAssertionResource.md) |  |  [optional]
 **urlId** | **String** |  |  [optional]
 
 
