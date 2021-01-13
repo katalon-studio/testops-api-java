@@ -13,6 +13,7 @@
 
 package com.katalon.testops.api.model;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -194,7 +195,7 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   private Boolean midnightEndOfDay;
 
   public static final String JSON_PROPERTY_LOCAL_TIME = "localTime";
-  private org.joda.time.* localTime;
+  private LocalDateTime localTime;
 
 
   public TimeZoneResourceOffsetRulesTransitionRules month(MonthEnum month) {
@@ -322,7 +323,7 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   }
 
 
-  public TimeZoneResourceOffsetRulesTransitionRules localTime(org.joda.time.* localTime) {
+  public TimeZoneResourceOffsetRulesTransitionRules localTime(LocalDateTime localTime) {
     
     this.localTime = localTime;
     return this;
@@ -337,12 +338,12 @@ public class TimeZoneResourceOffsetRulesTransitionRules implements Serializable 
   @JsonProperty(JSON_PROPERTY_LOCAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public org.joda.time.* getLocalTime() {
+  public LocalDateTime getLocalTime() {
     return localTime;
   }
 
 
-  public void setLocalTime(org.joda.time.* localTime) {
+  public void setLocalTime(LocalDateTime localTime) {
     this.localTime = localTime;
   }
 
